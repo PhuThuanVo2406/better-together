@@ -1,498 +1,759 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Better Together Conference</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Better Together 2027 · Student Conference</title>
+<meta name="description" content="Better Together: a student conference on belonging and human connection. Saturday, February 13, 2027, 9:00 AM to 2:00 PM at HCC Central Campus. Hosted by Phi Theta Kappa, Omega Sigma Chapter.">
+<meta property="og:title" content="Better Together 2027">
+<meta property="og:description" content="A student conference on belonging and human connection. Saturday, February 13, 2027 · HCC Central Campus.">
+<meta name="theme-color" content="#ecefff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+</script>
 <style>
-/* Layout: full-viewport fluid hero (Flowstate style), then glass content sections over the same fixed ink field */
 :root {
-  --hero-base:            #04050c;
-  --heading:              #eef0f6;
-  --body-muted:           #b9becf;
-  --on-media:             #ffffff;
-  --action-inverse:       #ffffff;
-  --action-inverse-fg:    #2f2f33;
-  --glass-fill:           rgba(255,255,255,0.08);
-  --glass-border:         rgba(255,255,255,0.16);
-  --panel:                rgba(4,5,12,0.62);
-  --scrim:                rgba(4,5,12,0.46);
-  --scrim-strong:         rgba(4,5,12,0.68);
-  --scrim-soft:           rgba(4,5,12,0.12);
-  --accent:               #8fa8ff;
-  --duration-fast:        150ms;
-  --ease-entrance:        cubic-bezier(0.2, 0, 0, 1);
-  --ease-out-cubic:       cubic-bezier(0.33, 1, 0.68, 1);
-  --font:                 "Onest", "Helvetica Neue", Arial, sans-serif;
-  color-scheme: dark;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-raleway: "Raleway", "Inter", sans-serif;
+  --ink: #0a0a0a;
+  --text: #1a1a1a;
+  --n700: #404040;
+  --n500: #737373;
+  --n400: #a3a3a3;
+  --accent: #0E2AC5;
+  --accent-80: rgba(14, 42, 197, 0.8);
+  --blue: #2f69ff;
+  --orb: radial-gradient(circle at 50% 30%, #5175ff 0%, #0e2ac5 55%, #020b40 100%);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --glass-hi: inset 0 1.5px 2px rgba(255,255,255,0.7), 0 8px 30px rgba(0,0,0,0.04);
+  --gutter: 24px;
+  color-scheme: light;
 }
-html { font-size: 16px; }
-@media (max-width: 1920px) { html { font-size: 0.833333vw; } }
-@media (max-width: 1440px) { html { font-size: 1.111111vw; } }
-@media (max-width: 1024px) { html { font-size: 1.5625vw; } }
-@media (max-width: 640px)  { html { font-size: 4.444444vw; } }
+@media (min-width: 768px) { :root { --gutter: 48px; } }
 
-* { margin: 0; box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; width: 100%; }
+html { scroll-behavior: auto; }
+body {
+  overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  color: var(--text); background: #f7fafc; font-family: var(--font-sans); line-height: 1.5;
+}
+h1, h2, h3, p, ul, ol { margin: 0; }
 a { color: inherit; text-decoration: none; }
-button { font: inherit; border: 0; background: none; color: inherit; cursor: pointer; }
-body { background: var(--hero-base); color: var(--heading); overflow-x: hidden; font-family: var(--font); font-size: 1rem; line-height: 1.5; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(14,42,197,0.18); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(14,42,197,0.32); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
-/* Fixed ink field + scrim behind the whole page */
-.fluid { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
-.scrim { position: fixed; inset: 0; z-index: 1; pointer-events: none;
-  background: radial-gradient(115% 95% at 50% 46%, var(--scrim-strong) 0%, var(--scrim-strong) 24%, var(--scrim) 52%, var(--scrim-soft) 100%); }
+.ic { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ic-sm { width: 14px; height: 14px; }
 
-/* ---------- Hero ---------- */
-.hero { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  min-height: 100lvh; width: 100%; overflow: hidden; text-align: center;
-  padding-left: max(1.25rem, env(safe-area-inset-left, 0px)); padding-right: max(1.25rem, env(safe-area-inset-right, 0px)); padding-block: 6rem; }
-.nav { position: absolute; inset-inline: 0; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between;
-  padding-block: 1.25rem; padding-left: max(1.25rem, env(safe-area-inset-left, 0px)); padding-right: max(1.25rem, env(safe-area-inset-right, 0px)); }
-.brand { display: flex; align-items: center; gap: 0.6rem; font-weight: 500; font-size: 1.15rem; color: var(--on-media); letter-spacing: -0.01em; }
-.brand svg { width: 1.35rem; height: 1.35rem; flex: none; }
-.links { display: none; position: absolute; left: 50%; transform: translateX(-50%); height: 3rem; align-items: center; gap: 2.25rem;
-  border-radius: 9999px; border: 1px solid var(--glass-border); background: var(--glass-fill); padding: 0 1.75rem;
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-.links a { font-size: 0.95rem; color: var(--body-muted); white-space: nowrap; transition: color var(--duration-fast) var(--ease-entrance); }
-.links a:hover { color: var(--heading); }
+/* ---------- Background gradient (cross-faded layers so the tint actually eases) ---------- */
+.bg { position: fixed; inset: 0; z-index: -10; }
+.bg > div { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s var(--ease-io); }
+.bg > div.on { opacity: 1; }
+.bg .g-hero { background: var(--hero-grad, radial-gradient(circle at center, #ffffff 0%, #ecefff 35%, #c2d1ff 100%)); }
+.bg .g-lime { background: radial-gradient(circle at center, #ffffff 0%, #fbffe5 38%, #e8ff9c 100%); }
+.bg .g-pink { background: radial-gradient(circle at center, #ffffff 0%, #fff0f1 38%, #ffd1d5 100%); }
+.bg .g-info { background: radial-gradient(circle at 50% 30%, #ffffff 0%, #f3f5ff 45%, #dfe6ff 100%); }
 
-.pill { display: inline-flex; align-items: center; justify-content: center; height: 2.5rem; border-radius: 9999px; background: var(--action-inverse);
-  padding: 0 1.125rem; font-size: 0.85rem; font-weight: 500; color: var(--action-inverse-fg); white-space: nowrap;
-  box-shadow: 0 1px 2px rgba(0,0,0,.05); transition: background var(--duration-fast) var(--ease-entrance); }
-.pill:hover { background: rgba(255,255,255,0.85); }
-.pill:focus-visible, .links a:focus-visible, .brand:focus-visible, .ghost:focus-visible, summary:focus-visible { outline: none; box-shadow: 0 0 0 2px rgba(255,255,255,.7); border-radius: 9999px; }
-.ghost { display: inline-flex; align-items: center; height: 2.5rem; padding: 0 1.125rem; border-radius: 9999px; border: 1px solid var(--glass-border);
-  background: var(--glass-fill); color: var(--heading); font-size: 0.85rem; font-weight: 500; white-space: nowrap; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  transition: background var(--duration-fast) var(--ease-entrance); }
-.ghost:hover { background: rgba(255,255,255,0.14); }
+.scene { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.scene canvas { display: block; width: 100%; height: 100%; pointer-events: none; }
 
-.center { position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 22rem; }
-.badge { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 9999px; border: 1px solid var(--glass-border); background: var(--glass-fill);
-  padding: 0.4rem 0.875rem; font-size: 0.72rem; color: var(--body-muted); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-.badge i { width: 0.4rem; height: 0.4rem; border-radius: 50%; background: var(--accent); font-style: normal; }
-.hero h1 { margin-top: 1.25rem; max-width: 20rem; font-size: 2.6rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; color: var(--heading); text-align: center; text-wrap: balance; }
-.hero .sub { margin-top: 1rem; max-width: 20rem; font-size: 1rem; line-height: 1.5; color: var(--body-muted); }
+/* ---------- Loader ---------- */
+.loader {
+  position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px;
+  background: radial-gradient(circle at 50% 42%, #ffffff 0%, #eef2ff 45%, #dbe4ff 100%);
+  transition: opacity 0.55s var(--ease-io);
+}
+.loader.leaving { opacity: 0; pointer-events: none; }
+.loader > * { opacity: 0; transform: translateY(18px); filter: blur(6px);
+  transition: opacity .9s cubic-bezier(.22,1.2,.36,1), transform .9s cubic-bezier(.22,1.2,.36,1), filter .9s cubic-bezier(.22,1.2,.36,1); }
+.loader.go > * { opacity: 1; transform: none; filter: blur(0); }
+.loader.go > :nth-child(1) { transition-delay: .1s; }
+.loader.go > :nth-child(2) { transition-delay: .26s; }
+.loader.go > :nth-child(3) { transition-delay: .42s; }
+.ld-status { font: 400 10px var(--font-mono); letter-spacing: 0.28em; text-transform: uppercase; color: #6b7bb5; }
+.ld-bar { width: clamp(180px, 32vw, 280px); height: 2px; border-radius: 99px; background: rgba(14,42,197,0.14); overflow: hidden; }
+.ld-fill { height: 100%; width: 0; border-radius: 99px; background: linear-gradient(90deg, #5175ff 0%, #0e2ac5 100%);
+  box-shadow: 0 0 14px rgba(47,105,255,0.55); transition: width 0.45s var(--ease); }
+.ld-count { font: 700 11px var(--font-mono); letter-spacing: 0.1em; color: #0e2ac5; font-variant-numeric: tabular-nums; }
 
-.infobar { margin-top: 1.75rem; width: 100%; display: flex; justify-content: center; }
-.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem 1.25rem; width: 40rem; max-width: 100%; min-height: 3.5rem;
-  border-radius: 1.75rem; border: 1px solid var(--glass-border); background: var(--glass-fill); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 2px rgba(0,0,0,.05); padding: 0.6rem 0.6rem 0.6rem 1.25rem; }
-.bar .meta { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; font-size: 0.9rem; color: var(--heading); text-align: left; }
-.bar .meta span { white-space: nowrap; }
-.bar .meta b { font-weight: 500; color: var(--body-muted); margin-right: 0.35rem; }
-.hero-actions { display: flex; gap: 0.5rem; }
+/* ---------- Header ---------- */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 30; height: 80px; padding: 0 var(--gutter);
+  display: flex; align-items: center; justify-content: space-between; pointer-events: none;
+  opacity: 0; transform: translateY(-16px); transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.revealed .header { opacity: 1; transform: none; }
+.header > * { pointer-events: auto; }
+.wordmark { font: 900 14px/1.05 var(--font-display); letter-spacing: 0.2em; color: var(--ink); text-transform: uppercase; }
+.wordmark span { display: block; }
+.nav { display: none; gap: 48px; font: 500 14px var(--font-raleway); }
+.nav a { transition: opacity .3s; }
+.nav a:hover { opacity: 0.6; }
+.hdr-right { display: flex; align-items: center; gap: 10px; }
+.icon-btn {
+  width: 40px; height: 40px; border-radius: 999px; display: grid; place-items: center;
+  border: 1px solid rgba(255,255,255,0.4); background: rgba(255,255,255,0.2);
+  -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); box-shadow: var(--glass-hi); transition: background .3s;
+}
+.icon-btn:hover { background: rgba(255,255,255,0.3); }
+.cta-pill {
+  display: inline-flex; align-items: center; gap: 12px; padding: 6px 6px 6px 20px; border-radius: 999px;
+  background: rgba(255,255,255,0.12); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px);
+  border: 1px solid; border-color: rgba(255,255,255,0.9) rgba(255,255,255,0.1) rgba(255,255,255,0.85);
+  box-shadow: var(--glass-hi); font: 500 13px var(--font-raleway); color: var(--ink);
+}
+.orb { width: 32px; height: 32px; border-radius: 999px; display: grid; place-items: center; background: var(--orb); color: #fff; transition: transform .4s var(--ease); }
+.cta-pill:hover .orb { transform: scale(1.05); }
+@media (min-width: 768px) {
+  .header { height: 96px; }
+  .wordmark { font-size: 18px; letter-spacing: 0.25em; }
+  .wordmark span { display: inline; }
+  .hdr-right { gap: 12px; }
+  .icon-btn { width: 44px; height: 44px; }
+  .cta-pill { padding-left: 24px; font-size: 14px; }
+}
+@media (min-width: 1100px) { .nav { display: flex; } .wordmark { font-size: 20px; } }
 
-.hero-foot { position: absolute; inset-inline: 0; bottom: 0; z-index: 20; display: flex; justify-content: center; padding: 1.25rem; font-size: 0.72rem; color: var(--body-muted); }
+/* ---------- Shared type ---------- */
+main { position: relative; z-index: 10; }
+.sec { position: relative; min-height: 100vh; min-height: 100svh; pointer-events: none; }
+.sec .txt, .sec a, .sec button, .sec form, .sec .gcard { pointer-events: auto; }
+.label { font: 400 11px var(--font-mono); letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent-80); }
+.h-xl { font: 500 2.6rem/1.0 var(--font-raleway); letter-spacing: -0.025em; color: var(--ink); }
+.body-lg { font: 500 16px/1.55 var(--font-raleway); color: var(--n700); }
+@media (min-width: 640px) { .h-xl { font-size: 3.75rem; } }
+@media (min-width: 768px) { .h-xl { font-size: 80px; line-height: 0.92; } .body-lg { font-size: 19px; } }
 
-/* Reveals */
-.rv { opacity: 0; transform: translateY(1.25rem); transition: opacity 700ms var(--ease-entrance), transform 700ms var(--ease-entrance); }
-.rv.from-top { transform: translateY(-0.75rem); }
-.rv.in { opacity: 1; transform: none; }
-.w { display: inline-block; opacity: 0; transition-property: opacity, transform; transition-timing-function: var(--ease-out-cubic); }
-.w.in { opacity: 1; transform: none !important; }
+/* Reveal */
+.rv { opacity: 0; transform: translateY(42px); filter: blur(8px);
+  transition: opacity 1.5s var(--ease), transform 1.5s var(--ease), filter 1.5s var(--ease); transition-delay: var(--d, 0s); }
+.rv.is-in { opacity: 1; transform: none; filter: blur(0); }
 
-/* ---------- Content sections ---------- */
-main { position: relative; z-index: 2; }
-.sec { padding-block: 5rem; }
-.wrap { max-width: 72rem; margin: 0 auto; padding-left: max(1.25rem, env(safe-area-inset-left, 0px)); padding-right: max(1.25rem, env(safe-area-inset-right, 0px)); display: grid; gap: 2rem; }
-.eyebrow { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
-.sec h2 { font-size: 2rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; text-wrap: balance; }
-.sec h3 { font-size: 1.15rem; font-weight: 500; letter-spacing: -0.01em; }
-.lede { font-size: 1.05rem; color: var(--body-muted); max-width: 44rem; }
-.head { display: grid; gap: 0.75rem; }
-.panel { border-radius: 1.25rem; border: 1px solid var(--glass-border); background: var(--panel); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 1.5rem; min-width: 0; }
-.grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-p { max-width: 65ch; }
-.muted { color: var(--body-muted); }
+/* ---------- 01 Hero ---------- */
+.hero { display: flex; align-items: flex-end; padding: 0 var(--gutter) 48px; }
+.hero-row { width: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; opacity: 0; transition: opacity .6s; }
+.revealed .hero-row { opacity: 1; }
+.hero-left { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.h-in { opacity: 0; transform: translateY(var(--y, 14px)); transition: opacity var(--dur, .8s) var(--ease), transform var(--dur, .8s) var(--ease); transition-delay: var(--d, 0s); }
+.revealed .h-in { opacity: 1; transform: none; }
+.eyebrow { font: 500 12px var(--font-raleway); letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+.hero h1 { font: 500 2.6rem/0.95 var(--font-raleway); letter-spacing: -0.05em; color: var(--ink); }
+.hero-right { max-width: 340px; }
+.hero-right p { font: 500 15px/1.35 var(--font-raleway); }
+.credit { font: 400 10px/1.7 var(--font-mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--n500); margin-top: 20px; }
+.scroll-cue { display: none; margin-top: 16px; align-items: center; gap: 8px; color: var(--n500); font: 400 10px var(--font-mono); letter-spacing: 0.2em; text-transform: uppercase; animation: pulse 2s cubic-bezier(.4,0,.6,1) infinite; }
+@keyframes pulse { 50% { opacity: .5; } }
+@media (min-width: 640px) { .hero h1 { font-size: 3.75rem; line-height: 1; } }
+@media (min-width: 768px) {
+  .hero { padding-bottom: 56px; }
+  .hero-row { flex-direction: row; align-items: flex-end; }
+  .eyebrow { font-size: 14px; margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(60px, 7.2vw, 90px); line-height: 1; }
+  .hero-right { width: 260px; flex: none; }
+  .scroll-cue { display: flex; }
+}
+@media (min-width: 1280px) { .hero h1 { white-space: nowrap; } }
 
-.stat { display: grid; gap: 0.35rem; align-content: start; }
-.stat strong { font-size: 2.6rem; font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
-.stat span { color: var(--heading); }
-.stat small { color: var(--body-muted); font-size: 0.78rem; }
+/* ---------- Glass cards ---------- */
+.gcard { position: relative; border-radius: 1.4rem; padding: 1px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.8), rgba(255,255,255,.3), rgba(255,255,255,.1));
+  box-shadow: 0 14px 40px -12px rgba(14,42,197,0.18); transition: transform .5s var(--ease); }
+.gcard:hover { transform: translateY(-2px); }
+.gcard > .in { position: relative; height: 100%; border-radius: 1.35rem; background: rgba(255,255,255,.25);
+  -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); padding: 20px 24px; overflow: hidden; }
+.gcard.solid > .in { background: rgba(255,255,255,.55); }
+.gcard > .in::before { content: ""; position: absolute; top: 0; left: 8%; right: 8%; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,.9), transparent); }
+.ch { display: flex; align-items: center; gap: 10px; font: 400 10px var(--font-mono); letter-spacing: .12em; }
+.ch .k { text-transform: uppercase; color: var(--n400); flex: 1; }
+.dot { width: 7px; height: 7px; border-radius: 99px; background: radial-gradient(circle at 35% 30%, #5175ff, #0e2ac5); box-shadow: 0 0 8px rgba(47,105,255,0.6); flex: none; }
+.cv { font: 600 18px/1.3 var(--font-raleway); color: var(--ink); margin-top: 12px; }
+.cd { font: 400 13px/1.5 var(--font-sans); color: var(--n500); margin-top: 4px; }
 
-.gain { display: grid; gap: 0.5rem; align-content: start; }
-.gain .tag { justify-self: start; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--body-muted); border: 1px solid var(--glass-border); border-radius: 9999px; padding: 0.2rem 0.6rem; }
+/* ---------- 02 Drop ---------- */
+.drop { display: flex; align-items: center; padding: 128px var(--gutter) 160px; }
+.grid12 { width: 100%; display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+@media (min-width: 768px) { .drop { padding-top: 160px; } }
+@media (min-width: 1024px) {
+  .grid12 { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 64px; }
+  .col7 { grid-column: span 7; } .col5 { grid-column: span 5; padding-top: 12px; }
+}
 
-.goals { list-style: none; padding: 0; display: grid; gap: 0.75rem; counter-reset: g; }
-.goals li { display: grid; grid-template-columns: 2rem 1fr; gap: 0.5rem; color: var(--body-muted); counter-increment: g; }
-.goals li::before { content: counter(g); width: 1.5rem; height: 1.5rem; border-radius: 50%; border: 1px solid var(--glass-border); display: grid; place-items: center; font-size: 0.75rem; color: var(--heading); }
+/* ---------- 03 Shape ---------- */
+.shape { display: flex; flex-direction: column; justify-content: space-between; padding: 144px var(--gutter); }
+.shape-bottom { align-self: flex-end; max-width: 384px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.55);
+  background: rgba(255,255,255,.35); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); color: var(--n700);
+  font: 400 10px var(--font-mono); letter-spacing: .2em; text-transform: uppercase; }
+@media (min-width: 768px) { .shape { padding: 176px var(--gutter); } .shape-bottom { text-align: right; } }
 
-.speaker { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; }
-.avatar { width: 4rem; height: 4rem; border-radius: 50%; flex: none; display: grid; place-items: center; font-weight: 500; font-size: 1.2rem;
-  background: radial-gradient(circle at 30% 30%, #6c8bff, #8a3cff 60%, #d03ad8); color: #fff; }
+/* ---------- 04 Release ---------- */
+.release { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 144px var(--gutter); }
+.release .txt { max-width: 48rem; }
+.release h2 { font: 500 2.8rem/1.0 var(--font-raleway); letter-spacing: -0.025em; color: var(--ink); }
+@media (min-width: 640px) { .release h2 { font-size: 4.5rem; } }
+@media (min-width: 768px) { .release { padding: 176px var(--gutter); } .release h2 { font-size: 88px; line-height: .92; } }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 32px; }
+.btn-dark { display: inline-flex; align-items: center; gap: 12px; padding: 6px 6px 6px 22px; border-radius: 999px; background: var(--ink); color: #fff; font: 500 14px var(--font-raleway); }
+.btn-dark .orb { width: 34px; height: 34px; }
+.btn-dark:hover .orb { transform: scale(1.05); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; border: 1px solid rgba(255,255,255,.7);
+  background: rgba(255,255,255,.4); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); font: 500 14px var(--font-raleway); color: var(--ink); box-shadow: var(--glass-hi); }
+.btn-ghost:hover { background: rgba(255,255,255,.6); }
+
+/* ---------- Information sections ---------- */
+.info { min-height: 0; pointer-events: auto; padding: 112px var(--gutter) 40px; }
+.wrap { max-width: 1240px; margin: 0 auto; }
+.info-head { display: grid; gap: 20px; margin-bottom: 40px; max-width: 820px; }
+.h-lg { font: 500 2.3rem/1.02 var(--font-raleway); letter-spacing: -0.025em; color: var(--ink); }
+@media (min-width: 768px) { .info { padding-top: 144px; } .h-lg { font-size: 60px; line-height: .98; } .info-head { margin-bottom: 56px; } }
+.lede { font: 500 16px/1.6 var(--font-raleway); color: var(--n700); max-width: 680px; }
+@media (min-width: 768px) { .lede { font-size: 18px; } }
+.grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .g2 { grid-template-columns: repeat(2, minmax(0,1fr)); } .g3 { grid-template-columns: repeat(2, minmax(0,1fr)); } .g4 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 1024px) { .g3 { grid-template-columns: repeat(3, minmax(0,1fr)); } .g4 { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+.mt { margin-top: 14px; }
+.mt-lg { margin-top: 56px; }
+.card-title { font: 600 20px/1.25 var(--font-raleway); color: var(--ink); margin-top: 12px; }
+.card-copy { font: 400 15px/1.6 var(--font-sans); color: var(--n700); margin-top: 10px; }
+.big { font: 500 30px/1.1 var(--font-raleway); letter-spacing: -0.02em; color: var(--ink); margin-top: 14px; }
+.tba { display: inline-block; font: 700 10px var(--font-mono); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); background: rgba(14,42,197,.08); border: 1px solid rgba(14,42,197,.18); border-radius: 99px; padding: 3px 10px; vertical-align: middle; }
+.sub-label { font: 700 10px var(--font-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin: 56px 0 18px; display: flex; align-items: center; gap: 10px; }
+.sub-label::after { content: ""; flex: 1; height: 1px; background: linear-gradient(to right, rgba(14,42,197,.25), transparent); }
+
+.list { list-style: none; padding: 0; display: grid; gap: 12px; margin-top: 14px; }
+.list li { position: relative; padding-left: 20px; font: 400 15px/1.6 var(--font-sans); color: var(--n700); }
+.list li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 6px; height: 6px; border-radius: 99px; background: radial-gradient(circle at 35% 30%, #5175ff, #0e2ac5); }
+.list b { color: var(--ink); font-weight: 600; }
+.olist { list-style: none; padding: 0; display: grid; gap: 16px; margin-top: 14px; counter-reset: o; }
+.olist li { counter-increment: o; display: grid; grid-template-columns: 34px 1fr; gap: 6px; font: 400 15px/1.6 var(--font-sans); color: var(--n700); }
+.olist li::before { content: counter(o, decimal-leading-zero); font: 500 11px/2.2 var(--font-mono); color: var(--accent); }
+.olist b { color: var(--ink); font-weight: 600; }
+
+.dates { list-style: none; padding: 0; margin-top: 8px; }
+.dates li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid rgba(10,10,10,.08); font: 500 15px var(--font-raleway); color: var(--ink); }
+.dates li:last-child { border-bottom: 0; }
+.dates time, .dates .v { font: 500 12px var(--font-mono); letter-spacing: .06em; color: var(--n700); text-align: right; }
+.dates .hl, .dates .hl time { color: var(--accent); }
 
 /* Schedule */
-.sched { display: grid; }
-.row { display: grid; grid-template-columns: 1fr; gap: 0.25rem; padding-block: 1rem; border-bottom: 1px solid var(--glass-border); }
-.row:last-child { border-bottom: 0; }
-.row time { font-variant-numeric: tabular-nums; color: var(--accent); font-size: 0.9rem; }
-.row .who { font-size: 0.85rem; color: var(--body-muted); }
-.row .what p { color: var(--body-muted); font-size: 0.92rem; }
-.row.connect h3::after { content: "Connect"; margin-left: 0.6rem; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: middle;
-  padding: 0.15rem 0.5rem; border-radius: 9999px; background: var(--glass-fill); border: 1px solid var(--glass-border); color: var(--heading); }
+.sched .row { display: grid; grid-template-columns: 1fr; gap: 4px; padding: 18px 0; border-bottom: 1px solid rgba(10,10,10,.08); }
+.sched .row:last-child { border-bottom: 0; }
+.sched time { font: 500 12px var(--font-mono); letter-spacing: .06em; color: var(--accent); }
+.sched h3 { font: 600 17px/1.3 var(--font-raleway); color: var(--ink); }
+.sched .what p { font: 400 14px/1.5 var(--font-sans); color: var(--n500); margin-top: 2px; }
+.sched .who { font: 400 13px var(--font-sans); color: var(--n500); }
+.tag { display: inline-block; margin-left: 8px; font: 500 9px var(--font-mono); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(14,42,197,.25); border-radius: 99px; padding: 2px 8px; vertical-align: middle; }
+@media (min-width: 720px) { .sched .row { grid-template-columns: 150px 1fr 220px; gap: 24px; align-items: baseline; } .sched .who { text-align: right; } }
+.prompt-q { font: 500 18px/1.4 var(--font-raleway); color: var(--ink); margin-top: 10px; }
 
-.prompts { display: grid; gap: 0.75rem; }
-.prompt { border-radius: 1rem; border: 1px solid var(--glass-border); background: var(--glass-fill); padding: 1rem 1.25rem; font-size: 1.05rem; }
-.prompt small { display: block; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--body-muted); margin-bottom: 0.35rem; }
+/* Themes */
+.theme-n { font: 500 11px var(--font-mono); color: var(--accent); letter-spacing: .1em; }
+.theme-t { font: 600 19px/1.3 var(--font-raleway); color: var(--ink); margin-top: 26px; }
+.theme-card .in { min-height: 150px; display: flex; flex-direction: column; justify-content: space-between; }
+.theme-card.idea .in { background: rgba(14,42,197,.06); }
 
-/* Abstracts */
-.list { padding-left: 1.2em; display: grid; gap: 0.5rem; color: var(--body-muted); }
-.list b { color: var(--heading); font-weight: 500; }
-.team { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; }
-.team strong { font-size: 3rem; font-weight: 500; letter-spacing: -0.03em; line-height: 1; }
-.tablebox { overflow-x: auto; }
-table { border-collapse: collapse; width: 100%; min-width: 30rem; font-size: 0.92rem; }
-th, td { text-align: left; vertical-align: top; padding: 0.75rem 0.75rem 0.75rem 0; border-bottom: 1px solid var(--glass-border); }
-th { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--body-muted); font-weight: 500; }
-td { color: var(--body-muted); }
-td:first-child { color: var(--heading); }
-td.num { text-align: right; font-variant-numeric: tabular-nums; color: var(--heading); }
-tr:last-child td { border-bottom: 0; }
-.dates { list-style: none; padding: 0; display: grid; gap: 0.6rem; }
-.dates li { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.6rem; flex-wrap: wrap; }
-.dates li:last-child { border-bottom: 0; }
-.dates span:last-child { color: var(--body-muted); }
-.tbc { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.1rem 0.45rem; border-radius: 9999px; border: 1px solid var(--glass-border); color: var(--body-muted); margin-left: 0.35rem; white-space: nowrap; }
+.quote-band { text-align: center; padding: 72px 0 24px; }
+.quote-band p.big-q { font: 500 clamp(28px, 4.4vw, 56px)/1.05 var(--font-raleway); letter-spacing: -0.025em; color: var(--ink); max-width: 900px; margin: 0 auto; }
+.quote-band .lede { margin: 22px auto 0; }
 
-/* Topics */
-.theme { display: grid; gap: 1rem; align-content: start; }
-.theme header { display: flex; align-items: baseline; gap: 0.75rem; }
-.theme header span { font-size: 0.75rem; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; }
-.topics { list-style: none; padding: 0; display: grid; gap: 0.9rem; }
-.topics li { display: grid; grid-template-columns: 2rem 1fr; gap: 0.5rem; }
-.topics .n { font-variant-numeric: tabular-nums; color: var(--body-muted); font-size: 0.85rem; padding-top: 0.1rem; }
-.topics q { quotes: none; display: block; }
-.topics small { display: block; color: var(--body-muted); font-size: 0.82rem; margin-top: 0.2rem; }
+/* Form */
+.form-wrap .in { padding: 28px; }
+@media (min-width: 768px) { .form-wrap .in { padding: 40px; } }
+.form { display: grid; gap: 22px; }
+.field { display: grid; gap: 8px; }
+.field > label, .field > legend { font: 700 10px var(--font-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--n700); padding: 0; }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.input { width: 100%; font: 500 16px var(--font-raleway); color: var(--ink); padding: 14px 18px; border-radius: 14px;
+  border: 1px solid rgba(10,10,10,.12); background: rgba(255,255,255,.8); box-shadow: inset 0 1px 2px rgba(10,10,10,.04); transition: border-color .2s, box-shadow .2s; }
+.input:focus { outline: none; border-color: rgba(14,42,197,.5); box-shadow: 0 0 0 4px rgba(47,105,255,.15); }
+.input[aria-invalid="true"] { border-color: #d92d4b; }
+.choices { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 8px; }
+@media (min-width: 560px) { .choices { grid-template-columns: 1fr 1fr; } }
+.choice { position: relative; }
+.choice input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.choice span { display: grid; gap: 4px; padding: 16px 18px; border-radius: 14px; border: 1px solid rgba(10,10,10,.12); background: rgba(255,255,255,.7); transition: background .25s, color .25s, transform .25s var(--ease); }
+.choice b { font: 600 16px var(--font-raleway); }
+.choice small { font: 400 13px/1.4 var(--font-sans); color: var(--n500); }
+.choice input:checked + span { background: var(--ink); color: #fff; transform: scale(1.01); }
+.choice input:checked + span small { color: rgba(255,255,255,.65); }
+.choice input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 3px; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.submit { justify-self: start; }
+.submit[disabled] { opacity: .6; cursor: progress; }
+.form-status { font: 500 14px/1.5 var(--font-raleway); min-height: 1.5em; }
+.form-status.ok { color: #0f7a3d; }
+.form-status.err { color: #c0213e; }
+.form-note { font: 400 12px/1.6 var(--font-sans); color: var(--n500); }
 
 /* FAQ */
-details { border-bottom: 1px solid var(--glass-border); padding-block: 1rem; }
+details { border-bottom: 1px solid rgba(10,10,10,.08); padding: 18px 0; }
 details:last-child { border-bottom: 0; }
-summary { cursor: pointer; font-weight: 500; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; font: 600 16px var(--font-raleway); color: var(--ink); }
 summary::-webkit-details-marker { display: none; }
-summary::after { content: "+"; color: var(--body-muted); }
+summary::after { content: "+"; font: 400 18px var(--font-mono); color: var(--accent); line-height: 1; }
 details[open] summary::after { content: "–"; }
-details p { margin-top: 0.6rem; color: var(--body-muted); }
-
-.refs { padding-left: 1.2em; display: grid; gap: 0.4rem; color: var(--body-muted); font-size: 0.82rem; }
+details p { margin-top: 10px; font: 400 15px/1.6 var(--font-sans); color: var(--n700); max-width: 70ch; }
+.refs { padding-left: 1.2em; display: grid; gap: 6px; margin-top: 28px; font: 400 12px/1.6 var(--font-sans); color: var(--n500); }
 .refs a { text-decoration: underline; text-underline-offset: 2px; }
 
-.cta-band { text-align: center; display: grid; justify-items: center; gap: 1.25rem; padding: 3rem 1.5rem; }
-.cta-band h2 { max-width: 30rem; }
+/* ---------- Footer ---------- */
+.footer { position: relative; z-index: 10; margin-top: 96px; background: #0a0a0a; color: #fff; border-radius: 2.5rem 2.5rem 0 0; overflow: hidden; }
+@media (min-width: 768px) { .footer { border-radius: 4rem 4rem 0 0; } }
+.bloom { position: absolute; border-radius: 999px; filter: blur(40px); pointer-events: none; }
+.bloom.a { width: 28rem; height: 28rem; top: -10rem; right: -8rem; background: radial-gradient(circle, #2f69ff66 0%, transparent 65%); }
+.bloom.b { width: 32rem; height: 32rem; bottom: -12rem; left: -10rem; background: radial-gradient(circle, #5175ff44 0%, transparent 65%); }
+.marquee { position: relative; border-bottom: 1px solid rgba(255,255,255,.1); padding: 20px 0; overflow: hidden; }
+.track { display: inline-flex; white-space: nowrap; animation: marquee 26s linear infinite; font: 500 clamp(28px, 6vw, 64px) var(--font-raleway); color: rgba(255,255,255,.9); }
+.track span { display: inline-flex; align-items: center; }
+.track span::after { content: ""; width: 10px; height: 10px; border-radius: 99px; background: #2f69ff; margin-left: 64px; }
+.track span { padding-left: 32px; padding-right: 0; margin-right: 32px; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.f-body { position: relative; padding: 64px var(--gutter) 40px; }
+@media (min-width: 768px) { .f-body { padding-top: 96px; } }
+.f-grid { display: grid; grid-template-columns: 1fr; gap: 48px; }
+@media (min-width: 1024px) { .f-grid { grid-template-columns: repeat(12, minmax(0,1fr)); } .f-cta { grid-column: span 5; } .f-cols { grid-column: span 7; } }
+.f-label { font: 400 11px var(--font-mono); letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+.f-cta h2 { font: 500 2.25rem/0.95 var(--font-raleway); letter-spacing: -0.02em; margin-top: 20px; }
+@media (min-width: 768px) { .f-cta h2 { font-size: 3.75rem; } }
+.f-cta p { font: 400 15px/1.6 var(--font-sans); color: rgba(255,255,255,.6); margin-top: 20px; max-width: 420px; }
+.mail-pill { display: inline-flex; align-items: center; gap: 16px; margin-top: 28px; padding: 8px 8px 8px 24px; border-radius: 999px; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.05); font: 500 15px var(--font-raleway); transition: background .3s; max-width: 100%; }
+.mail-pill span { overflow-wrap: anywhere; }
+@media (min-width: 768px) { .mail-pill { font-size: 18px; padding-left: 28px; } }
+.mail-pill:hover { background: rgba(255,255,255,.1); }
+.mail-pill .orb { width: 40px; height: 40px; flex: none; }
+.mail-pill .orb .ic { transition: transform .4s var(--ease); }
+.mail-pill:hover .orb .ic { transform: rotate(45deg); }
+.f-cols { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 32px; }
+@media (min-width: 640px) { .f-cols { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+.f-col ul { list-style: none; padding: 0; margin-top: 18px; display: grid; gap: 12px; }
+.f-col a { display: inline-flex; align-items: center; gap: 6px; font: 400 15px var(--font-raleway); color: rgba(255,255,255,.75); transition: color .3s; }
+.f-col a:hover { color: #fff; }
+.f-col a .ic { width: 12px; height: 12px; opacity: 0; transform: translate(-4px, 4px); transition: opacity .3s, transform .3s var(--ease); }
+.f-col a:hover .ic { opacity: 1; transform: none; }
+.f-fade { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: var(--d, 0s); }
+.f-fade.is-in { opacity: 1; transform: none; }
+.f-bar { margin-top: 80px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.1); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+@media (min-width: 768px) { .f-bar { margin-top: 112px; } }
+.f-brand { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.f-brand b { font: 900 15px var(--font-display); letter-spacing: .22em; }
+.f-brand i { width: 6px; height: 6px; border-radius: 99px; background: #2f69ff; }
+.f-brand small { font: 400 11px var(--font-mono); color: rgba(255,255,255,.4); }
+.socials { display: flex; gap: 10px; }
+.socials a { width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(255,255,255,.15); display: grid; place-items: center; color: rgba(255,255,255,.7); transition: color .3s, background .3s; }
+.socials a:hover { color: #fff; background: rgba(255,255,255,.06); }
 
-.site-foot { position: relative; z-index: 2; border-top: 1px solid var(--glass-border); background: rgba(4,5,12,0.7); }
-.site-foot .wrap { padding-block: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: 0.82rem; color: var(--body-muted); }
+/* ---------- Scene controls drawer ---------- */
+.scrim { position: fixed; inset: 0; z-index: 40; background: rgba(10,10,10,.2); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); opacity: 0; pointer-events: none; transition: opacity .4s; }
+.scrim.open { opacity: .4; pointer-events: auto; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 50; width: 100%; padding: 32px; overflow-y: auto; overscroll-behavior: contain;
+  background: rgba(255,255,255,.95); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); border-left: 1px solid #f5f5f5;
+  transform: translateX(100%); transition: transform .65s cubic-bezier(.22,1.08,.36,1), visibility 0s .65s; visibility: hidden; display: flex; flex-direction: column; }
+.drawer.open { transform: none; visibility: visible; transition: transform .65s cubic-bezier(.22,1.08,.36,1), visibility 0s; }
+@media (min-width: 640px) { .drawer { width: 420px; } }
+.dr-head { display: flex; align-items: center; justify-content: space-between; }
+.dr-title { display: flex; align-items: center; gap: 10px; font: 900 14px var(--font-display); letter-spacing: .2em; text-transform: uppercase; }
+.dr-close { width: 36px; height: 36px; border-radius: 999px; display: grid; place-items: center; border: 1px solid #eee; }
+.dr-close:hover { background: #f5f5f5; }
+.dr-note { font: italic 400 12px/1.6 var(--font-mono); color: var(--n400); margin-top: 18px; }
+.dr-sec { display: flex; align-items: center; gap: 8px; font: 700 10px var(--font-mono); letter-spacing: .2em; text-transform: uppercase; margin: 32px 0 14px; }
+.themes { display: grid; gap: 10px; }
+.theme-opt { text-align: left; border-radius: 12px; border: 1px solid #e5e5e5; padding: 16px; transition: background .3s, color .3s, transform .3s var(--ease); }
+.theme-opt:hover { border-color: #ccc; }
+.theme-opt[aria-pressed="true"] { background: var(--ink); color: #fff; transform: scale(1.02); border-color: var(--ink); }
+.theme-opt .t { display: flex; align-items: center; justify-content: space-between; font: 700 12px var(--font-sans); }
+.theme-opt .sw { width: 12px; height: 12px; border-radius: 99px; }
+.theme-opt .d { font: 400 10px/1.5 var(--font-sans); opacity: .7; margin-top: 6px; }
+.dr-foot { margin-top: auto; padding-top: 32px; display: grid; gap: 8px; }
+.dr-foot .r { display: flex; justify-content: space-between; font: 400 9px var(--font-mono); letter-spacing: .12em; color: var(--n400); }
+.reset { margin-top: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 12px; border: 1px solid #e5e5e5; font: 600 12px var(--font-sans); }
+.reset:hover { background: #f5f5f5; }
 
-@media (min-width: 640px) {
-  .nav { padding-block: 1.75rem; padding-left: max(2.5rem, env(safe-area-inset-left, 0px)); padding-right: max(2.5rem, env(safe-area-inset-right, 0px)); }
-  .hero { padding-left: max(2.5rem, env(safe-area-inset-left, 0px)); padding-right: max(2.5rem, env(safe-area-inset-right, 0px)); }
-  .brand { font-size: 1.375rem; }
-  .brand svg { width: 1.5rem; height: 1.5rem; }
-  .links { display: flex; }
-  .pill, .ghost { height: 2.75rem; padding: 0 1.375rem; font-size: 0.95rem; }
-  .center { max-width: 40rem; }
-  .badge { font-size: 0.8rem; }
-  .hero h1 { margin-top: 1.75rem; max-width: 34rem; font-size: 4.25rem; }
-  .hero .sub { margin-top: 1.25rem; max-width: 34rem; font-size: 1.1rem; }
-  .infobar { margin-top: 2.5rem; }
-  .bar { min-height: 4rem; border-radius: 9999px; padding: 0.4rem 0.4rem 0.4rem 1.5rem; flex-wrap: nowrap; }
-  .hero-foot { padding: 1.5rem 2.5rem; font-size: 0.8rem; }
-  .wrap { padding-left: max(2.5rem, env(safe-area-inset-left, 0px)); padding-right: max(2.5rem, env(safe-area-inset-right, 0px)); }
-  .sec h2 { font-size: 2.75rem; }
-  .grid.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .grid.c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .row { grid-template-columns: 9rem 1fr 14rem; gap: 1.5rem; align-items: baseline; }
-  .row .who { text-align: right; }
-  .panel { padding: 2rem; }
-  .site-foot .wrap { padding-block: 2rem; }
-}
-@media (min-width: 1024px) {
-  .center { max-width: 52rem; }
-  .hero h1 { max-width: 46rem; font-size: 6rem; }
-  .hero .sub { max-width: none; font-size: 1.2rem; }
-  .grid.c4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
 @media (prefers-reduced-motion: reduce) {
-  .rv, .w { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .rv, .h-in, .f-fade, .hero-row, .header { transition: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
+  .track, .scroll-cue { animation: none; }
 }
 </style>
+</head>
+<body>
 
-<canvas class="fluid" aria-hidden="true"></canvas>
-<div class="scrim" aria-hidden="true"></div>
+<!-- Inline Lucide icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
+  <symbol id="i-pointer" viewBox="0 0 24 24"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></symbol>
+  <symbol id="i-upright" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></symbol>
+</svg>
 
-<section class="hero" id="top">
-  <header class="nav rv from-top" data-delay="150">
-    <a class="brand" href="#top">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M2.5 9c2.5 0 2.5 4.2 5 4.2S10 9 12 9s2.5 4.2 5 4.2S19.5 9 21.5 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M2.5 15c2.5 0 2.5 4.2 5 4.2S10 15 12 15s2.5 4.2 5 4.2S19.5 15 21.5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
-      </svg>
-      Better Together
-    </a>
-    <nav class="links" aria-label="Sections">
-      <a href="#about">About</a>
-      <a href="#schedule">Schedule</a>
-      <a href="#abstracts">Call for abstracts</a>
-      <a href="#topics">Topics</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <a class="pill" href="#abstracts">Submit abstract</a>
-  </header>
+<div class="bg" id="bg" aria-hidden="true">
+  <div class="g-hero on"></div><div class="g-lime"></div><div class="g-pink"></div><div class="g-info"></div>
+</div>
+<div class="scene" id="scene" aria-hidden="true"></div>
 
-  <div class="center">
-    <p class="badge rv" data-delay="320"><i></i>Phi Theta Kappa · Omega Sigma Chapter</p>
-    <h1 data-words data-delay="480" data-stagger="85" data-dur="720" data-y="26">Better Together</h1>
-    <p class="sub" data-words data-delay="1150" data-stagger="22" data-dur="600" data-y="14">A student conference on belonging and student connection. Research, conversation, and a room full of people who care about the same thing.</p>
-    <div class="infobar rv" data-delay="1450">
-      <div class="bar">
-        <div class="meta">
-          <span><b>Date</b>February 22, 2027</span>
-          <span><b>Place</b>HCC Central Campus, Auditorium</span>
-        </div>
-        <div class="hero-actions">
-          <a class="pill" href="#abstracts">Present</a>
-        </div>
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="ld-status" id="ldStatus">Calibrating gravity field</div>
+  <div class="ld-bar"><div class="ld-fill" id="ldFill"></div></div>
+  <div class="ld-count" id="ldCount">000%</div>
+</div>
+
+<header class="header">
+  <a class="wordmark" href="#top" aria-label="Better Together, back to top"><span>Better </span><span>Together</span></a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#details">About</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#abstracts">Abstracts</a>
+    <a href="#register">Register</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hdr-right">
+    <button class="icon-btn" id="openControls" aria-label="Open scene controls" aria-controls="drawer" aria-expanded="false">
+      <svg class="ic"><use href="#i-sliders"/></svg>
+    </button>
+    <a class="cta-pill" href="#register">Register <span class="orb"><svg class="ic"><use href="#i-chev"/></svg></span></a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 01 Hero -->
+  <section class="sec hero" aria-labelledby="heroTitle">
+    <div class="hero-row">
+      <div class="hero-left txt">
+        <p class="eyebrow h-in" style="--y:14px;--d:.15s">[ Phi Theta Kappa · Omega Sigma ]</p>
+        <h1 id="heroTitle" class="h-in" style="--y:22px;--d:.28s;--dur:1s">Less lonely. More together.</h1>
+      </div>
+      <div class="hero-right txt h-in" style="--y:14px;--d:.45s">
+        <p>Better Together is a student conference on belonging and human connection at Houston City College.</p>
+        <p class="credit">Sat · Feb 13, 2027<br>9 AM – 2 PM<br>HCC Central Campus</p>
+        <div class="scroll-cue"><svg class="ic ic-sm"><use href="#i-down"/></svg>Scroll</div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="hero-foot rv" data-delay="1650">Houston City College · Honors in Action 2026–2027</div>
-</section>
+  <!-- 02 Drop -->
+  <section class="sec drop">
+    <div class="grid12">
+      <div class="col7 txt">
+        <p class="label rv">[ 02 — The problem ]</p>
+        <h2 class="h-xl rv" style="--d:.1s;margin-top:24px">When connection<br>falls apart.</h2>
+        <p class="body-lg rv" style="--d:.2s;margin-top:32px;max-width:32rem">Loneliness is common, especially for commuter and working students who rush from class to work to home. Keep scrolling and watch the field come apart, every sphere tumbling off on its own until something pulls it back together.</p>
+      </div>
+      <div class="col5 stack rv" style="--d:.25s">
+        <div class="gcard"><div class="in">
+          <div class="ch"><span>01</span><span class="k">Worldwide</span><i class="dot"></i></div>
+          <div class="cv">1 in 6 people</div>
+          <div class="cd">experience loneliness. WHO Commission on Social Connection</div>
+        </div></div>
+        <div class="gcard"><div class="in">
+          <div class="ch"><span>02</span><span class="k">College students</span><i class="dot"></i></div>
+          <div class="cv">25% report it</div>
+          <div class="cd">moderate to severe loneliness. Trellis Strategies, 2026</div>
+        </div></div>
+        <div class="gcard"><div class="in">
+          <div class="ch"><span>03</span><span class="k">Leaving college</span><i class="dot"></i></div>
+          <div class="cv">30% cite isolation</div>
+          <div class="cd">as a reason they dropped out. Trellis Strategies</div>
+        </div></div>
+      </div>
+    </div>
+  </section>
 
-<main>
+  <!-- 03 Shape (heart) -->
+  <section class="sec shape">
+    <div class="txt">
+      <p class="label rv">[ 03 — Belonging ]</p>
+      <h2 class="h-xl rv" style="--d:.1s;margin-top:24px;max-width:42rem">Apart, then together.</h2>
+    </div>
+    <div class="shape-bottom txt">
+      <p class="body-lg rv" style="--d:.15s">Student researchers, educators and community members come together for one day to explore loneliness, the importance of belonging, and the many ways we build meaningful human connection.</p>
+      <div class="rv" style="--d:.28s;margin-top:28px"><span class="chip"><svg class="ic ic-sm"><use href="#i-pointer"/></svg>Swipe through it</span></div>
+    </div>
+  </section>
 
-  <section class="sec" id="about">
+  <!-- 04 Release -->
+  <section class="sec release">
+    <div class="txt">
+      <p class="label rv">[ 04 — Your voice ]</p>
+      <h2 class="rv" style="--d:.12s;margin-top:28px">Your research.<br>Your voice.</h2>
+      <p class="body-lg rv" style="--d:.24s;margin:32px auto 0;max-width:28rem">Great research begins with curiosity, and meaningful change begins when we share what we discover. Abstracts are due January 15, 2027 at 11:59 PM.</p>
+      <div class="btns rv" style="--d:.32s">
+        <a class="btn-dark" href="#abstracts">Call for abstracts <span class="orb"><svg class="ic"><use href="#i-chev"/></svg></span></a>
+        <a class="btn-ghost" href="#register">Register interest</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Details -->
+  <section class="sec info" id="details">
     <div class="wrap">
-      <div class="head">
-        <div class="eyebrow">Why we're doing this</div>
-        <h2>Loneliness is common. Connection can be designed.</h2>
-        <p class="lede">Better Together is the action of our Honors in Action project. Our research asked how community colleges can design interventions that increase meaningful interaction between students. The answer pointed to structured, face-to-face time, so that is what this day is built around.</p>
+      <div class="info-head">
+        <p class="label rv">[ 05 — The day ]</p>
+        <h2 class="h-lg rv" style="--d:.1s">Saturday, February 13, 2027</h2>
+        <p class="lede rv" style="--d:.18s">Better Together is the action component of our chapter's 2026–2027 Honors in Action project. Our research asked how community colleges can increase meaningful interaction between students. The answer pointed to structured, face-to-face time, so that is what this day is built around.</p>
       </div>
-      <div class="grid c3">
-        <div class="panel stat"><strong>1 in 6</strong><span>people worldwide experience loneliness</span><small>WHO Commission on Social Connection</small></div>
-        <div class="panel stat"><strong>25%</strong><span>of college students report moderate to severe loneliness</span><small>Trellis Strategies, 2026</small></div>
-        <div class="panel stat"><strong>30%</strong><span>of students who drop out name feeling isolated as a reason</span><small>Trellis Strategies</small></div>
+      <div class="grid g4 rv" style="--d:.2s">
+        <div class="gcard solid"><div class="in"><div class="ch"><span>Date</span><span class="k"></span><i class="dot"></i></div><div class="big">Feb 13, 2027</div><p class="cd">Saturday</p></div></div>
+        <div class="gcard solid"><div class="in"><div class="ch"><span>Time</span><span class="k"></span><i class="dot"></i></div><div class="big">9 AM – 2 PM</div><p class="cd">Check-in 8:30 – 9:00 AM</p></div></div>
+        <div class="gcard solid"><div class="in"><div class="ch"><span>Place</span><span class="k"></span><i class="dot"></i></div><div class="big">HCC Central</div><p class="cd">Houston City College, Central Campus</p></div></div>
+        <div class="gcard solid"><div class="in"><div class="ch"><span>Guest speaker</span><span class="k"></span><i class="dot"></i></div><div class="big">TBA</div><p class="cd">Announcement coming soon</p></div></div>
       </div>
-      <div class="grid c2">
-        <div class="panel" style="display:grid;gap:1rem;align-content:start">
-          <h3>Goals for the day</h3>
-          <ol class="goals">
+      <div class="grid g2 mt rv" style="--d:.1s">
+        <div class="gcard solid"><div class="in">
+          <div class="ch"><span>Key dates</span><span class="k"></span><i class="dot"></i></div>
+          <ul class="dates">
+            <li><span>Registration opens</span><time datetime="2027-01-11">Mon · Jan 11, 2027</time></li>
+            <li class="hl"><span>Abstract submission deadline</span><time datetime="2027-01-15T23:59">Fri · Jan 15, 2027 · 11:59 PM</time></li>
+            <li><span>Acceptance notifications</span><span class="v"><span class="tba">TBA</span></span></li>
+            <li class="hl"><span>Better Together Conference</span><time datetime="2027-02-13">Sat · Feb 13, 2027</time></li>
+          </ul>
+        </div></div>
+        <div class="gcard solid"><div class="in">
+          <div class="ch"><span>Goals for the day</span><span class="k"></span><i class="dot"></i></div>
+          <ol class="olist">
             <li>Raise awareness of loneliness among commuter and working students.</li>
             <li>Give students a low-pressure way to meet peers face to face.</li>
             <li>Give student research teams a stage to present their work.</li>
             <li>Connect students with licensed professionals and campus resources.</li>
             <li>Measure the change in belonging with a short feedback survey.</li>
           </ol>
-        </div>
-        <div class="panel" style="display:grid;gap:1.25rem;align-content:start">
-          <h3>Keynote speaker</h3>
-          <div class="speaker">
-            <div class="avatar" aria-hidden="true">BH</div>
-            <div>
-              <div style="font-size:1.35rem;font-weight:500">Bartholomew Henderson</div>
-              <div class="muted">Keynote talk with Q&amp;A</div>
-            </div>
-          </div>
-          <p class="muted">Opens the day with a talk on loneliness, belonging and what helps students connect.</p>
-        </div>
+        </div></div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="gain">
+  <!-- 06 Schedule -->
+  <section class="sec info" id="schedule">
     <div class="wrap">
-      <div class="head">
-        <div class="eyebrow">What you take home</div>
-        <h2>Three reasons to come</h2>
+      <div class="info-head">
+        <p class="label rv">[ 06 — Schedule ]</p>
+        <h2 class="h-lg rv" style="--d:.1s">Draft schedule</h2>
+        <p class="lede rv" style="--d:.18s">Check-in starts at 8:30 AM and the program runs from 9:00 AM to 2:00 PM. Session times are a draft and may shift slightly.</p>
       </div>
-      <div class="grid c3">
-        <div class="panel gain"><span class="tag">Presenters</span><h3>Research experience</h3><p class="muted">Work in a team of 2 to 5, ask a real question about student life, and back it with evidence.</p></div>
-        <div class="panel gain"><span class="tag">Everyone</span><h3>Public speaking</h3><p class="muted">Present a 10-minute talk, field questions, or simply speak up in a small-group conversation.</p></div>
-        <div class="panel gain"><span class="tag">Everyone</span><h3>Networking</h3><p class="muted">Meet students, faculty and professionals who care about the same issue, with structured rounds that make it easy.</p></div>
+      <div class="gcard solid rv" style="--d:.2s"><div class="in sched">
+        <div class="row"><time>8:30 – 9:00 AM</time><div class="what"><h3>Check-in</h3><p>Name tags and prompt cards</p></div><span class="who">PTK officers</span></div>
+        <div class="row"><time>9:00 – 9:15 AM</time><div class="what"><h3>Welcome and opening remarks</h3></div><span class="who">Chapter president, faculty advisor</span></div>
+        <div class="row"><time>9:15 – 9:45 AM</time><div class="what"><h3>Guest speaker</h3><p>Talk and Q&amp;A</p></div><span class="who"><span class="tba">TBA</span></span></div>
+        <div class="row"><time>9:50 – 10:10 AM</time><div class="what"><h3>Our Honors in Action research</h3><p>What we found and how it shaped this event</p></div><span class="who">Omega Sigma research team</span></div>
+        <div class="row"><time>10:10 – 10:40 AM</time><div class="what"><h3>Connection Round 1 <span class="tag">Connect</span></h3><p>Three 10-minute pair conversations</p></div><span class="who">Student facilitators</span></div>
+        <div class="row"><time>10:45 – 11:45 AM</time><div class="what"><h3>Oral research presentations</h3><p>Four slots: 10-minute talk, 5 minutes of questions</p></div><span class="who">Accepted teams</span></div>
+        <div class="row"><time>11:45 AM – 12:30 PM</time><div class="what"><h3>Lunch and poster session</h3><p>Talk with poster presenters about their research</p></div><span class="who">Accepted teams</span></div>
+        <div class="row"><time>12:30 – 1:15 PM</time><div class="what"><h3>Breakout sessions</h3><p>Small groups of up to 12</p></div><span class="who">Licensed professionals</span></div>
+        <div class="row"><time>1:15 – 1:45 PM</time><div class="what"><h3>Connection Round 2 <span class="tag">Connect</span></h3><p>New partners, prompts about staying connected</p></div><span class="who">Student facilitators</span></div>
+        <div class="row"><time>1:45 – 2:00 PM</time><div class="what"><h3>Closing</h3><p>Resource list, next steps, feedback survey</p></div><span class="who">PTK officers</span></div>
+      </div></div>
+      <div class="grid g3 mt rv" style="--d:.1s">
+        <div class="gcard"><div class="in"><div class="ch"><span>Round 1</span><span class="k">Light</span><i class="dot"></i></div><p class="prompt-q">What's one thing you wish people knew about being a student here?</p></div></div>
+        <div class="gcard"><div class="in"><div class="ch"><span>Round 1</span><span class="k">Deeper</span><i class="dot"></i></div><p class="prompt-q">What's something you're working on that you're proud of?</p></div></div>
+        <div class="gcard"><div class="in"><div class="ch"><span>Round 2</span><span class="k">After today</span><i class="dot"></i></div><p class="prompt-q">What's one way we could keep in touch?</p></div></div>
       </div>
+      <p class="form-note rv" style="margin-top:16px">How Connection Rounds work: each pair gets a prompt card and 10 minutes, and a bell marks the switch to a new partner. Phones go face down. Anyone can sit out a round and still stay in the room.</p>
     </div>
   </section>
 
-  <section class="sec" id="schedule">
+  <!-- 07 Call for abstracts -->
+  <section class="sec info" id="abstracts">
     <div class="wrap">
-      <div class="head">
-        <div class="eyebrow">The day</div>
-        <h2>Draft schedule</h2>
-        <p class="lede">About two hours of the day are small-group or one-on-one time. Times are a draft until the room booking is confirmed.</p>
+      <div class="info-head">
+        <p class="label rv">[ 07 — Call for abstracts ]</p>
+        <h2 class="h-lg rv" style="--d:.1s">Your research. Your perspective. Your voice.</h2>
+        <p class="lede rv" style="--d:.18s">The Phi Theta Kappa Omega Sigma Chapter invites Houston City College students to submit their research for Better Together: A Student Conference on Belonging and Human Connection.</p>
       </div>
-      <div class="panel sched">
-        <div class="row"><time>9:30–10:00</time><div class="what"><h3>Registration and welcome</h3><p>Check-in, name tags, prompt cards</p></div><span class="who">PTK officers</span></div>
-        <div class="row"><time>10:00–10:15</time><div class="what"><h3>Opening remarks</h3></div><span class="who">Chapter president, faculty advisor</span></div>
-        <div class="row"><time>10:15–10:45</time><div class="what"><h3>Keynote</h3><p>Talk and Q&amp;A</p></div><span class="who">Bartholomew Henderson</span></div>
-        <div class="row"><time>10:50–11:10</time><div class="what"><h3>Our HIA research</h3><p>Theme 8 findings and how they shaped this event</p></div><span class="who">Omega Sigma research team</span></div>
-        <div class="row connect"><time>11:10–11:40</time><div class="what"><h3>Connection Round 1</h3><p>Three 10-minute pair conversations</p></div><span class="who">Student facilitators</span></div>
-        <div class="row"><time>11:40–12:15</time><div class="what"><h3>Lunch</h3></div><span class="who">Open seating</span></div>
-        <div class="row"><time>12:15–1:15</time><div class="what"><h3>Student research presentations</h3><p>Four slots: 10-minute talk, 5 minutes of Q&amp;A</p></div><span class="who">Selected teams</span></div>
-        <div class="row"><time>1:20–2:05</time><div class="what"><h3>Breakout sessions</h3><p>Groups of up to 12</p></div><span class="who">Licensed professionals</span></div>
-        <div class="row connect"><time>2:10–2:40</time><div class="what"><h3>Connection Round 2</h3><p>New partners, prompts about staying connected</p></div><span class="who">Student facilitators</span></div>
-        <div class="row"><time>2:45–3:00</time><div class="what"><h3>Closing</h3><p>Resource list, next steps, feedback survey</p></div><span class="who">PTK officers</span></div>
-      </div>
-      <div class="grid c2">
-        <div class="panel" style="display:grid;gap:0.75rem;align-content:start">
-          <h3>How Connection Rounds work</h3>
-          <p class="muted">Each pair gets a prompt card and 10 minutes. A bell marks the switch to a new partner. Phones go face down. Anyone can sit out a round and still stay in the room.</p>
-        </div>
-        <div class="prompts">
-          <div class="prompt"><small>Round 1 · light</small>What's one thing you wish people knew about being a student here?</div>
-          <div class="prompt"><small>Round 1 · deeper</small>What's something you're working on that you're proud of?</div>
-          <div class="prompt"><small>Round 2 · after today</small>What's one way we could keep in touch?</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="sec" id="abstracts">
-    <div class="wrap">
-      <div class="head">
-        <div class="eyebrow">Call for abstracts</div>
-        <h2>Form a team. Pick a question. Present it.</h2>
-        <p class="lede">Four presentation slots are open in the 12:15 research block. Choose a topic from the list below or propose your own, as long as it connects to loneliness, belonging or student connection.</p>
+      <div class="grid g2 rv" style="--d:.1s">
+        <div class="gcard solid"><div class="in">
+          <div class="ch"><span>All disciplines welcome</span><span class="k"></span><i class="dot"></i></div>
+          <p class="card-copy">We welcome research from all academic disciplines, including psychology, sociology, education, business, technology, health sciences, humanities, communication, and more. Whether your research examines a social challenge, investigates human behavior, evaluates a program, or explores an innovative solution, we want to hear your perspective.</p>
+        </div></div>
+        <div class="gcard solid"><div class="in">
+          <div class="ch"><span>First-time researchers welcome</span><span class="k"></span><i class="dot"></i></div>
+          <p class="card-copy">You do not need to be an experienced researcher to participate. Research developed through a class, an Honors project, or an independent study is welcome. There is no single question you must answer. Choose a topic that interests you, investigate it using evidence, and share what you discover.</p>
+        </div></div>
       </div>
-      <div class="grid c2">
-        <div class="panel" style="display:grid;gap:1rem;align-content:start">
-          <div class="team"><strong>2–5</strong><span class="muted">students per team</span></div>
+
+      <p class="sub-label rv">Suggested research themes</p>
+      <p class="lede rv" style="margin-bottom:22px">These themes are intended to inspire your research, not limit it. You are encouraged to develop your own research question and explore any related topic that interests you.</p>
+      <div class="grid g4 rv" style="--d:.1s">
+        <div class="gcard solid theme-card"><div class="in"><span class="theme-n">01</span><h3 class="theme-t">Psychology, Loneliness &amp; Mental Well-Being</h3></div></div>
+        <div class="gcard solid theme-card"><div class="in"><span class="theme-n">02</span><h3 class="theme-t">Student Life, Belonging &amp; Campus Communities</h3></div></div>
+        <div class="gcard solid theme-card"><div class="in"><span class="theme-n">03</span><h3 class="theme-t">Technology, Social Media &amp; Human Connection</h3></div></div>
+        <div class="gcard solid theme-card"><div class="in"><span class="theme-n">04</span><h3 class="theme-t">Culture, Identity &amp; Social Inclusion</h3></div></div>
+        <div class="gcard solid theme-card"><div class="in"><span class="theme-n">05</span><h3 class="theme-t">Education, Collaboration &amp; Student Success</h3></div></div>
+        <div class="gcard solid theme-card"><div class="in"><span class="theme-n">06</span><h3 class="theme-t">Leadership, Community Engagement &amp; Social Impact</h3></div></div>
+        <div class="gcard solid theme-card"><div class="in"><span class="theme-n">07</span><h3 class="theme-t">Innovative Solutions &amp; Building a More Connected Future</h3></div></div>
+        <div class="gcard solid theme-card idea"><div class="in"><span class="theme-n">+</span><h3 class="theme-t">Have another idea? We welcome it!</h3></div></div>
+      </div>
+      <p class="card-copy rv" style="max-width:760px;margin-top:18px">These themes are suggestions, not restrictions. Your research may combine multiple disciplines, explore a different perspective, or investigate an issue not explicitly listed above. As long as your work has a meaningful connection to the conference's central themes of loneliness, belonging, or human connection, we encourage you to submit. We value curiosity, originality, thoughtful analysis, and diverse perspectives.</p>
+
+      <p class="sub-label rv">Abstract submission guidelines</p>
+      <div class="grid g2 rv" style="--d:.1s">
+        <div class="gcard solid"><div class="in">
+          <div class="ch"><span>Eligibility</span><span class="k"></span><i class="dot"></i></div>
           <ul class="list">
-            <li>Solo entries and teams larger than 5 are not accepted.</li>
-            <li>All members are current HCC students. PTK membership is not required.</li>
-            <li>Name one <b>team lead</b> as the contact person.</li>
-            <li>Get a <b>faculty sponsor</b> to read your abstract.</li>
-            <li>Give every member a role. At least two members speak.</li>
-            <li>No team yet? Contact the chapter officers and we'll match you.</li>
+            <li>Open to currently enrolled Houston City College students. Phi Theta Kappa membership is not required.</li>
+            <li>Presentations may include research conducted as part of coursework, Honors projects, independent studies, or other academic activities.</li>
+            <li>Under the current conference format, research teams must consist of <b>2–5 students</b> and identify one <b>team leader</b> as the primary contact.</li>
+            <li>Each team must have a <b>faculty sponsor</b> who reviews the abstract before submission.</li>
           </ul>
-        </div>
-        <div class="panel" style="display:grid;gap:1rem;align-content:start">
-          <h3>What to submit</h3>
-          <ol class="list">
-            <li>Project title and topic number (or "own topic")</li>
-            <li>Team name, team lead, every member's name and student email</li>
-            <li>Faculty sponsor name and department</li>
-            <li>An abstract of <b>150–250 words</b>: question, approach, main takeaway</li>
-            <li>Format: 10-minute talk with 5 minutes of questions</li>
-          </ol>
-        </div>
+        </div></div>
+        <div class="gcard solid"><div class="in">
+          <div class="ch"><span>Abstract requirements</span><span class="k"></span><i class="dot"></i></div>
+          <p class="card-copy">Abstracts must be <b style="color:var(--ink)">150–250 words</b> and include:</p>
+          <ul class="list">
+            <li><b>Research purpose:</b> the topic, objective, or central question investigated.</li>
+            <li><b>Methodology:</b> how the research was conducted, including relevant data, sources, or analytical approaches.</li>
+            <li><b>Key findings:</b> the principal results, discoveries, or insights.</li>
+            <li><b>Significance:</b> why the findings matter and how they relate to the conference themes.</li>
+          </ul>
+          <p class="card-copy">Your abstract should be clear, concise, and understandable to an interdisciplinary audience.</p>
+        </div></div>
       </div>
-      <div class="grid c2">
-        <div class="panel" style="display:grid;gap:1rem;align-content:start">
-          <h3>How abstracts are scored</h3>
-          <div class="tablebox">
-            <table>
-              <thead><tr><th>Criterion</th><th>What reviewers look for</th><th style="text-align:right">Points</th></tr></thead>
-              <tbody>
-                <tr><td>Relevance</td><td>Clear link to loneliness, belonging or connection</td><td class="num">25</td></tr>
-                <tr><td>Clarity</td><td>A focused question and one clear takeaway</td><td class="num">25</td></tr>
-                <tr><td>Evidence</td><td>Published research, surveys, interviews or a real program</td><td class="num">30</td></tr>
-                <tr><td>Teamwork</td><td>Every member has a defined role</td><td class="num">10</td></tr>
-                <tr><td>Theme balance</td><td>Helps the program cover different themes</td><td class="num">10</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="panel" style="display:grid;gap:1rem;align-content:start">
-          <h3>Key dates</h3>
+      <div class="gcard solid mt rv"><div class="in">
+        <div class="ch"><span>Research requirements</span><span class="k"></span><i class="dot"></i></div>
+        <ol class="olist">
+          <li><span><b>Completed research only.</b> Your project must be substantially completed, with findings available, before you submit your abstract. Research proposals or projects without results will not be considered.</span></li>
+          <li><span><b>Original conference presentation.</b> Your work must not have been previously presented at another academic conference.</span></li>
+          <li><span><b>Class projects are welcome.</b> Research completed for a class is eligible, provided it is adapted for a conference presentation.</span></li>
+          <li><span><b>Academic integrity.</b> All submissions must represent the researchers' own work, appropriately acknowledge sources, and accurately report methods and findings.</span></li>
+          <li><span><b>AI usage.</b> Abstracts must be written by the student researchers without generative AI assistance, including AI-powered rewriting or grammar-generation tools such as Grammarly's AI features. Basic, non-generative spelling and grammar checks are permitted. Presentations should likewise reflect students' own writing, analysis, and preparation. Research examining AI as a subject is welcome.</span></li>
+        </ol>
+      </div></div>
+
+      <p class="sub-label rv">Presentation formats</p>
+      <div class="grid g2 rv" style="--d:.1s">
+        <div class="gcard solid"><div class="in">
+          <div class="ch"><span>01</span><span class="k">Oral</span><i class="dot"></i></div>
+          <h3 class="card-title">Oral research presentation</h3>
+          <ul class="list">
+            <li>10-minute presentation followed by 5 minutes of audience questions.</li>
+            <li>Four presentation slots are currently planned.</li>
+            <li>Presenters should communicate their findings clearly and prepare appropriate visual materials.</li>
+          </ul>
+        </div></div>
+        <div class="gcard solid"><div class="in">
+          <div class="ch"><span>02</span><span class="k">Poster</span><i class="dot"></i></div>
+          <h3 class="card-title">Poster presentation</h3>
+          <ul class="list">
+            <li>An opportunity to discuss research findings directly with attendees in an interactive setting.</li>
+            <li>Limited to 20 accepted submissions.</li>
+            <li>Accepted presenters are responsible for preparing, printing, and bringing their own physical research posters.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="grid g2 mt rv">
+        <div class="gcard solid"><div class="in">
+          <div class="ch"><span>Presenter responsibilities</span><span class="k"></span><i class="dot"></i></div>
+          <p class="card-copy">Submitting an abstract represents a commitment to present if selected.</p>
+          <ul class="list">
+            <li>At least two members of each team must participate as speakers during an oral presentation.</li>
+            <li>All accepted presenters must be available on the conference date, Saturday, February 13, 2027.</li>
+            <li>Teams must monitor their student email for acceptance notifications and conference instructions.</li>
+            <li>If unexpected circumstances prevent participation, the organizing committee must be notified as soon as possible.</li>
+          </ul>
+          <p class="card-copy">Please submit only if you are prepared to present your research if accepted.</p>
+        </div></div>
+        <div class="gcard solid"><div class="in">
+          <div class="ch"><span>Important dates</span><span class="k"></span><i class="dot"></i></div>
           <ul class="dates">
-            <li><span>Call for abstracts opens</span><span>To be announced</span></li>
-            <li><span>Abstract deadline</span><span>About 4 weeks before <em class="tbc">TBC</em></span></li>
-            <li><span>Teams notified</span><span>About 2 weeks before <em class="tbc">TBC</em></span></li>
-            <li><span>Slide run-through</span><span>About 1 week before <em class="tbc">TBC</em></span></li>
-            <li><span>Conference</span><span>February 22, 2027</span></li>
+            <li><span>Registration opens</span><time datetime="2027-01-11">Jan 11, 2027</time></li>
+            <li class="hl"><span>Abstract submission deadline</span><time datetime="2027-01-15T23:59">Jan 15, 2027 · 11:59 PM</time></li>
+            <li><span>Acceptance notifications and program announcement</span><span class="v"><span class="tba">TBA</span></span></li>
+            <li class="hl"><span>Better Together Conference</span><time datetime="2027-02-13">Feb 13, 2027</time></li>
           </ul>
-          <p class="muted" style="font-size:0.88rem">The submission form link will be posted here and on Instagram at @omega.sigma.ptk.</p>
+          <p class="card-copy">Accepted teams will receive email notifications with presentation instructions. The conference program will also be published online.</p>
+        </div></div>
+      </div>
+
+      <p class="sub-label rv">Why should you present?</p>
+      <div class="grid g3 rv" style="--d:.1s">
+        <div class="gcard"><div class="in"><div class="ch"><span>01</span><span class="k"></span><i class="dot"></i></div><h3 class="card-title">Research experience</h3><p class="card-copy">Share your findings with an academic audience and strengthen your experience as a student researcher.</p></div></div>
+        <div class="gcard"><div class="in"><div class="ch"><span>02</span><span class="k"></span><i class="dot"></i></div><h3 class="card-title">Public speaking</h3><p class="card-copy">Develop confidence in communicating your ideas, explaining evidence, and answering questions.</p></div></div>
+        <div class="gcard"><div class="in"><div class="ch"><span>03</span><span class="k"></span><i class="dot"></i></div><h3 class="card-title">Professional growth</h3><p class="card-copy">Build academic achievements for your resume, transfer applications, and future opportunities while connecting with students, faculty, and professionals.</p></div></div>
+      </div>
+
+      <div class="quote-band">
+        <p class="label rv">Every perspective matters. Every connection counts.</p>
+        <p class="big-q rv" style="--d:.1s;margin-top:22px">Bring your research. Bring your curiosity. Bring your perspective.</p>
+        <p class="lede rv" style="--d:.18s">You do not need to have all the answers to make a meaningful contribution. Whether this is your first research project or one of many, Better Together is an opportunity to share your work, learn from others, and become part of a larger conversation about building stronger communities. Because better research starts with questions, and a better future starts together.</p>
+        <div class="btns rv" style="--d:.26s">
+          <a class="btn-dark" href="#register">Submit your abstract by Jan 15, 2027 <span class="orb"><svg class="ic"><use href="#i-chev"/></svg></span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="topics">
+  <!-- 08 Register -->
+  <section class="sec info" id="register">
     <div class="wrap">
-      <div class="head">
-        <div class="eyebrow">Research topics</div>
-        <h2>20 questions worth answering</h2>
-        <p class="lede">Each topic comes with a suggested way to study it at HCC. Put the topic number on your submission.</p>
-      </div>
-      <div class="grid c4">
-        <div class="panel theme">
-          <header><span>Theme A</span><h3>Psychology of loneliness</h3></header>
-          <ol class="topics">
-            <li><span class="n">01</span><div><q>What is the "liking gap," and does it stop students from starting conversations?</q><small>Literature review plus a survey after a conversation activity</small></div></li>
-            <li><span class="n">02</span><div><q>How is loneliness different from being alone, and why does it matter?</q><small>Review of emotional vs. social loneliness</small></div></li>
-            <li><span class="n">03</span><div><q>How do loneliness, anxiety and depression feed each other in college students?</q><small>Review of national survey data</small></div></li>
-            <li><span class="n">04</span><div><q>Does fear of being judged keep students out of clubs and study groups?</q><small>Anonymous campus survey</small></div></li>
-            <li><span class="n">05</span><div><q>Why do lonely students avoid asking for help, and what reduces that stigma?</q><small>Literature review plus counselor interviews</small></div></li>
-          </ol>
+      <div class="grid g2" style="gap:40px;align-items:start">
+        <div class="info-head" style="margin-bottom:0">
+          <p class="label rv">[ 08 — Register ]</p>
+          <h2 class="h-lg rv" style="--d:.1s">Count me in.</h2>
+          <p class="lede rv" style="--d:.18s">Tell us whether you'd like to join as an attendee or as a presenter, and we'll keep you posted with updates and next steps. Official registration opens January 11, 2027.</p>
+          <p class="card-copy rv" style="--d:.24s">Presenting? Abstracts are due <b style="color:var(--ink)">January 15, 2027 at 11:59 PM</b>. Questions about submitting? Email Chapter President Vincent Vo at <a href="mailto:vop.president.omegasigma@outlook.com" style="color:var(--accent);text-decoration:underline;text-underline-offset:2px">vop.president.omegasigma@outlook.com</a>.</p>
         </div>
-        <div class="panel theme">
-          <header><span>Theme B</span><h3>Commuter and working students</h3></header>
-          <ol class="topics">
-            <li><span class="n">06</span><div><q>How do commuting and work schedules limit friendships at community college?</q><small>Survey of HCC commuter and working students</small></div></li>
-            <li><span class="n">07</span><div><q>Do online and hybrid classes increase or reduce loneliness?</q><small>Compare online and in-person survey answers</small></div></li>
-            <li><span class="n">08</span><div><q>What blocks international and multilingual students from making friends?</q><small>Interviews or a focus group</small></div></li>
-            <li><span class="n">09</span><div><q>How do student parents and adult learners find community on campus?</q><small>Interviews plus a review of campus services</small></div></li>
-            <li><span class="n">10</span><div><q>Which campus spaces and times actually work for busy students to meet?</q><small>Map spaces and survey when students are on campus</small></div></li>
-          </ol>
-        </div>
-        <div class="panel theme">
-          <header><span>Theme C</span><h3>Technology and connection</h3></header>
-          <ol class="topics">
-            <li><span class="n">11</span><div><q>Can AI chatbot companions reduce loneliness, or do they replace human contact?</q><small>Review of recent studies</small></div></li>
-            <li><span class="n">12</span><div><q>Does a phone on the table lower the quality of a face-to-face conversation?</q><small>Small experiment with and without phones</small></div></li>
-            <li><span class="n">13</span><div><q>Does cutting back on social media reduce loneliness?</q><small>One-week challenge with a before/after survey</small></div></li>
-            <li><span class="n">14</span><div><q>Do class group chats and Discord servers build real friendships?</q><small>Survey plus a review of class chats, with permission</small></div></li>
-            <li><span class="n">15</span><div><q>How could technology bring students together in person?</q><small>Review apps and campus tools, then propose a design</small></div></li>
-          </ol>
-        </div>
-        <div class="panel theme">
-          <header><span>Theme D</span><h3>Programs that work</h3></header>
-          <ol class="topics">
-            <li><span class="n">16</span><div><q>Which interventions work best: support groups, skills training or more contact?</q><small>Review of systematic reviews</small></div></li>
-            <li><span class="n">17</span><div><q>Does peer mentoring improve belonging for first-year students?</q><small>Literature review plus mentor interviews</small></div></li>
-            <li><span class="n">18</span><div><q>How can professors design classes that build connection between students?</q><small>Faculty interviews plus a student survey</small></div></li>
-            <li><span class="n">19</span><div><q>Do clubs and campus events reach the students who need connection most?</q><small>Compare attendance with survey data</small></div></li>
-            <li><span class="n">20</span><div><q>What could HCC realistically change to reduce student loneliness?</q><small>Review other colleges' programs and propose one</small></div></li>
-          </ol>
-        </div>
+        <div class="gcard solid form-wrap rv" style="--d:.15s"><div class="in">
+          <form class="form" id="interestForm" novalidate>
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input class="input" id="f-name" name="name" type="text" autocomplete="name" maxlength="120" required>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input class="input" id="f-email" name="email" type="email" autocomplete="email" maxlength="160" required>
+            </div>
+            <fieldset class="field" id="f-role">
+              <legend>I'm interested in joining as</legend>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="role" value="Attendee" required><span><b>Attendee</b><small>Come for the talks, conversations and connection.</small></span></label>
+                <label class="choice"><input type="radio" name="role" value="Presenter"><span><b>Presenter</b><small>Share your team's research in an oral or poster session.</small></span></label>
+              </div>
+            </fieldset>
+            <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <button class="btn-dark submit" type="submit">Send <span class="orb"><svg class="ic"><use href="#i-chev"/></svg></span></button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            <p class="form-note">We only use your details to send Better Together updates.</p>
+          </form>
+        </div></div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="research">
+  <!-- 09 FAQ -->
+  <section class="sec info" id="faq">
     <div class="wrap">
-      <div class="head">
-        <div class="eyebrow">Built on evidence</div>
-        <h2>The research behind the design</h2>
+      <div class="info-head">
+        <p class="label rv">[ 09 — Questions ]</p>
+        <h2 class="h-lg rv" style="--d:.1s">Good to know</h2>
       </div>
-      <div class="grid c3">
-        <div class="panel gain"><span class="tag">Friesen, 2024</span><h3>Conferences build belonging</h3><p class="muted">Community college students at an academic conference grew closer, valued their college more and felt they belonged. Faculty acted as the catalyst.</p></div>
-        <div class="panel gain"><span class="tag">Ellard et al., 2023</span><h3>Small groups work</h3><p class="muted">12 of 14 interventions built on support groups, interaction or reflection reduced loneliness, versus 4 of 10 talk-only ones.</p></div>
-        <div class="panel gain"><span class="tag">Sharp et al., 2006</span><h3>Awareness opens doors</h3><p class="muted">A 40-minute session on mental-health myths and treatment improved attitudes toward seeking help for up to a month.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="faq">
-    <div class="wrap">
-      <div class="head">
-        <div class="eyebrow">Questions</div>
-        <h2>Good to know</h2>
-      </div>
-      <div class="panel">
-        <details><summary>Who can attend?</summary><p>All HCC students, free of charge. Commuter and working students are especially welcome.</p></details>
+      <div class="gcard solid rv" style="--d:.15s"><div class="in">
+        <details><summary>Who can attend?</summary><p>All Houston City College students are welcome. Commuter and working students are especially encouraged to come.</p></details>
+        <details><summary>Do I need to be a Phi Theta Kappa member?</summary><p>No. Phi Theta Kappa membership is not required to attend or to present.</p></details>
+        <details><summary>Can I present on my own?</summary><p>Under the current conference format, research teams must have 2–5 students, with one team leader as the primary contact and a faculty sponsor who reviews the abstract.</p></details>
         <details><summary>Do I have to talk to strangers?</summary><p>No. Every Connection Round is voluntary, and you can sit out and stay in the room.</p></details>
-        <details><summary>Can I present on my own?</summary><p>No. Presentations are by teams of 2 to 5. Contact the officers if you need to be matched with a team.</p></details>
-        <details><summary>Why are licensed professionals involved?</summary><p>Loneliness often overlaps with anxiety or depression, so trained counselors lead the breakouts to keep the event safe.</p></details>
-        <details><summary>How do I stay updated?</summary><p>Follow @omega.sigma.ptk on Instagram or come to the next chapter general meeting.</p></details>
-      </div>
-      <div class="panel cta-band">
-        <div class="eyebrow">February 22, 2027 · HCC Central Campus</div>
-        <h2>Better together starts with one conversation.</h2>
-        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center">
-          <a class="pill" href="#abstracts">Submit an abstract</a>
-          <a class="ghost" href="#topics">Browse topics</a>
-        </div>
-      </div>
+        <details><summary>Why are licensed professionals involved?</summary><p>Loneliness often overlaps with anxiety or depression, so trained counselors lead the breakouts to keep the event safe and supportive.</p></details>
+        <details><summary>Who do I contact with questions?</summary><p>Email Chapter President Vincent Vo at <a href="mailto:vop.president.omegasigma@outlook.com" style="color:var(--accent);text-decoration:underline">vop.president.omegasigma@outlook.com</a> for any conference information. Happy to help.</p></details>
+      </div></div>
       <ol class="refs">
         <li>Friesen, M. (2024). Building student sense of belonging through undergraduate conference attendance. <em>Journal of Campus Activities Practice and Scholarship, 6</em>(1), 28–38. <a href="https://doi.org/10.52499/2024004">doi.org/10.52499/2024004</a></li>
         <li>Ellard, O. B., Dennison, C., &amp; Tuomainen, H. (2023). Interventions addressing loneliness amongst university students: a systematic review. <em>Child and Adolescent Mental Health, 28</em>(4), 512–523. <a href="https://doi.org/10.1111/camh.12614">doi.org/10.1111/camh.12614</a></li>
@@ -503,1231 +764,822 @@ details p { margin-top: 0.6rem; color: var(--body-muted); }
 
 </main>
 
-<footer class="site-foot">
-  <div class="wrap">
-    <span>© 2027 Phi Theta Kappa, Omega Sigma Chapter · Houston City College</span>
-    <span>Instagram @omega.sigma.ptk</span>
+<footer class="footer" id="contact">
+  <div class="bloom a"></div><div class="bloom b"></div>
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Less lonely</span><span>More together</span><span>Every connection counts</span><span>Better together</span>
+      <span>Less lonely</span><span>More together</span><span>Every connection counts</span><span>Better together</span>
+    </div>
+  </div>
+  <div class="f-body">
+    <div class="f-grid">
+      <div class="f-cta f-fade">
+        <p class="f-label">[ Questions? ]</p>
+        <h2>Happy to help<br>with anything.</h2>
+        <p>For all conference information, reach out to the Chapter President, Vincent Vo.</p>
+        <a class="mail-pill" href="mailto:vop.president.omegasigma@outlook.com"><span>vop.president.omegasigma@outlook.com</span><span class="orb"><svg class="ic"><use href="#i-upright"/></svg></span></a>
+      </div>
+      <div class="f-cols">
+        <div class="f-col f-fade" style="--d:0s">
+          <p class="f-label">Conference</p>
+          <ul>
+            <li><a href="#details">About <svg class="ic"><use href="#i-upright"/></svg></a></li>
+            <li><a href="#schedule">Schedule <svg class="ic"><use href="#i-upright"/></svg></a></li>
+            <li><a href="#details">Key dates <svg class="ic"><use href="#i-upright"/></svg></a></li>
+            <li><a href="#register">Register <svg class="ic"><use href="#i-upright"/></svg></a></li>
+          </ul>
+        </div>
+        <div class="f-col f-fade" style="--d:.08s">
+          <p class="f-label">Abstracts</p>
+          <ul>
+            <li><a href="#abstracts">Call for abstracts <svg class="ic"><use href="#i-upright"/></svg></a></li>
+            <li><a href="#abstracts">Themes <svg class="ic"><use href="#i-upright"/></svg></a></li>
+            <li><a href="#abstracts">Guidelines <svg class="ic"><use href="#i-upright"/></svg></a></li>
+            <li><a href="#faq">FAQ <svg class="ic"><use href="#i-upright"/></svg></a></li>
+          </ul>
+        </div>
+        <div class="f-col f-fade" style="--d:.16s">
+          <p class="f-label">Connect</p>
+          <ul>
+            <li><a href="https://www.instagram.com/omega.sigma.ptk/" target="_blank" rel="noopener">Instagram <svg class="ic"><use href="#i-upright"/></svg></a></li>
+            <li><a href="mailto:vop.president.omegasigma@outlook.com">Email <svg class="ic"><use href="#i-upright"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="f-bar">
+      <div class="f-brand"><b>BETTER TOGETHER</b><i></i><small>© 2027 Phi Theta Kappa, Omega Sigma Chapter · Houston City College</small></div>
+      <div class="socials">
+        <a href="https://www.instagram.com/omega.sigma.ptk/" target="_blank" rel="noopener" aria-label="Instagram @omega.sigma.ptk"><svg class="ic"><use href="#i-insta"/></svg></a>
+        <a href="mailto:vop.president.omegasigma@outlook.com" aria-label="Email the chapter president"><svg class="ic"><use href="#i-mail"/></svg></a>
+      </div>
+    </div>
   </div>
 </footer>
 
+<!-- Scene controls drawer -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Scene controls" aria-hidden="true">
+  <div class="dr-head">
+    <div class="dr-title"><svg class="ic"><use href="#i-sliders"/></svg>Scene Controls</div>
+    <button class="dr-close" id="closeControls" aria-label="Close scene controls"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <p class="dr-note">Set the hero sphere palette. As you scroll, the scene morphs to volt-lime, then rose-pink as the heart assembles.</p>
+  <p class="dr-sec"><svg class="ic ic-sm"><use href="#i-sparkles"/></svg>Hero Palette Shaders</p>
+  <div class="themes" id="themes"></div>
+  <div class="dr-foot">
+    <div class="r"><span>RENDER ENGINE</span><span>THREE.JS WEBGL</span></div>
+    <div class="r"><span>DYNAMICS SOLVER</span><span>3D COLLISION VERLET</span></div>
+    <button class="reset" id="resetTheme"><svg class="ic ic-sm"><use href="#i-reset"/></svg>Reset Defaults</button>
+  </div>
+</aside>
+
 <script>
-/* Staggered entrance: whole blocks and word-by-word lines */
+/* =====================================================================
+   Interest form endpoint.
+   Paste your Google Apps Script web app URL here (see apps-script/README.md).
+   Until it is set, the form explains that it isn't connected yet.
+   ===================================================================== */
+const SHEET_ENDPOINT = '';
+
 (function () {
-  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  document.querySelectorAll("[data-words]").forEach(el => {
-    const base = +el.dataset.delay, stagger = +el.dataset.stagger, dur = +el.dataset.dur, y = +el.dataset.y;
-    const words = el.textContent.trim().split(/\s+/);
-    el.textContent = "";
-    words.forEach((word, i) => {
-      const s = document.createElement("span");
-      s.className = "w";
-      s.textContent = word;
-      s.style.transform = "translateY(" + y + "px)";
-      s.style.transitionDuration = dur + "ms";
-      s.style.transitionDelay = (base + i * stagger) + "ms";
-      el.appendChild(s);
-      if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
-    });
+  'use strict';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Shared state read by the WebGL scene module.
+  const control = { progress: 0, started: false };
+  const mousePos = { x: 99, y: 99, isDown: false };
+  window.BT = { control, mousePos, ready: false, onReady: null, rebuild: null };
+
+  /* ---------- Pointer tracking ---------- */
+  window.addEventListener('pointermove', (e) => {
+    mousePos.x = (e.clientX / window.innerWidth) * 2 - 1;
+    mousePos.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  }, { passive: true });
+  window.addEventListener('mousedown', () => { mousePos.isDown = true; });
+  window.addEventListener('mouseup', () => { mousePos.isDown = false; });
+  document.addEventListener('mouseleave', () => { mousePos.x = 99; mousePos.y = 99; });
+
+  /* ---------- Scroll → progress + background stage ---------- */
+  const bgLayers = document.querySelectorAll('#bg > div');
+  let bgStage = -1, scrollQueued = false;
+  function updateProgress() {
+    scrollQueued = false;
+    const vh = window.innerHeight || 1;
+    const progress = window.scrollY / vh;
+    control.progress = progress;
+    // 0 hero, 1 lime, 2 pink, 3 info pages (back to a soft blue once the field has released)
+    const stage = progress > 3.6 ? 3 : progress > 1.55 ? 2 : progress > 0.7 ? 1 : 0;
+    if (stage !== bgStage) {
+      bgStage = stage;
+      bgLayers.forEach((el, i) => el.classList.toggle('on', i === stage));
+    }
+  }
+  const queueProgress = () => { if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(updateProgress); } };
+  window.addEventListener('scroll', queueProgress, { passive: true });
+  window.addEventListener('resize', queueProgress);
+  updateProgress();
+
+  /* ---------- Smooth wheel scroll (Lenis-style, lerp 0.09) ---------- */
+  const LERP = 0.09, WHEEL_MULT = 1;
+  let target = window.scrollY, current = window.scrollY, smoothing = false;
+  const maxScroll = () => Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  function tick() {
+    current += (target - current) * LERP;
+    if (Math.abs(target - current) < 0.5) { current = target; smoothing = false; }
+    window.scrollTo(0, current);
+    if (smoothing) requestAnimationFrame(tick);
+  }
+  function smoothTo(y) {
+    if (!smoothing) current = window.scrollY;
+    target = clamp(y, 0, maxScroll());
+    if (reduceMotion) { window.scrollTo(0, target); return; }
+    if (!smoothing) { smoothing = true; requestAnimationFrame(tick); }
+  }
+  if (!reduceMotion) {
+    window.addEventListener('wheel', (e) => {
+      if (e.ctrlKey || drawerOpen) return;
+      let dy = e.deltaY;
+      if (e.deltaMode === 1) dy *= 16; else if (e.deltaMode === 2) dy *= window.innerHeight;
+      e.preventDefault();
+      if (!smoothing) target = window.scrollY;
+      smoothTo(target + dy * WHEEL_MULT);
+    }, { passive: false });
+    // Any non-wheel scroll (keyboard, scrollbar, touch) cancels the glide so we never fight the user.
+    ['keydown', 'touchstart', 'pointerdown'].forEach((t) => window.addEventListener(t, () => { smoothing = false; }, { passive: true }));
+  }
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute('href').slice(1);
+    const el = id ? document.getElementById(id) : null;
+    if (!el && id !== 'top') return;
+    e.preventDefault();
+    const y = id === 'top' ? 0 : el.getBoundingClientRect().top + window.scrollY - (id === 'contact' ? 0 : 24);
+    smoothTo(y);
+    history.replaceState(null, '', '#' + id);
   });
-  const go = () => {
-    document.querySelectorAll(".w").forEach(s => s.classList.add("in"));
-    document.querySelectorAll(".rv").forEach(el => {
-      if (reduce) { el.classList.add("in"); return; }
-      setTimeout(() => el.classList.add("in"), +el.dataset.delay || 0);
-    });
-  };
-  requestAnimationFrame(() => requestAnimationFrame(go));
-})();
-</script>
 
-<script>
-function fluidSimulation(canvas) {
-    canvas.width = canvas.clientWidth;
-    canvas.height = canvas.clientHeight;
+  /* ---------- Reveal on scroll ---------- */
+  const revealEls = document.querySelectorAll('.rv, .f-fade');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const io = new IntersectionObserver((entries) => {
+      for (const en of entries) {
+        if (!en.isIntersecting) continue;
+        const vh = window.innerHeight;
+        // ~45% visible, or 45% of the viewport filled for elements taller than the screen
+        if (en.intersectionRatio >= 0.45 || en.intersectionRect.height >= vh * 0.45) {
+          en.target.classList.add('is-in');
+          io.unobserve(en.target);
+        }
+      }
+    }, { threshold: [0, 0.1, 0.2, 0.3, 0.45, 0.6] });
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add('is-in'));
+  }
 
-    let config = {
-        SIM_RESOLUTION: 200,
-        DYE_RESOLUTION: 512,
-        DENSITY_DISSIPATION: 0.958,
-        VELOCITY_DISSIPATION: 0.96,
-        PRESSURE_DISSIPATION: 0.8,
-        PRESSURE_ITERATIONS: 20,
-        CURL: 42,
-        SPLAT_RADIUS: 0.22,
-        SHADING: true,
-        COLORFUL: true,
-        PAUSED: false,
-        BACK_COLOR: { r: 4, g: 5, b: 12 },
-        TRANSPARENT: false,
-        BLOOM: false,
-        BLOOM_ITERATIONS: 8,
-        BLOOM_RESOLUTION: 256,
-        BLOOM_INTENSITY: 0.8,
-        BLOOM_THRESHOLD: 0.8,
-        BLOOM_SOFT_KNEE: 0.7
+  /* ---------- Loader ---------- */
+  const loader = document.getElementById('loader');
+  const ldFill = document.getElementById('ldFill');
+  const ldCount = document.getElementById('ldCount');
+  const ldStatus = document.getElementById('ldStatus');
+  requestAnimationFrame(() => loader.classList.add('go'));
+  let value = 0, last = performance.now(), finishing = false;
+  window.BT.onReady = () => { window.BT.ready = true; };
+  setTimeout(() => { window.BT.ready = true; }, 9000); // never strand the page if WebGL can't start
+  function loaderFrame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    if (!window.BT.ready) value += (92 - value) * 1.7 * dt;
+    else { value += (100 - value) * 6 * dt; if (value >= 99.4) value = 100; }
+    const shown = Math.floor(value);
+    ldFill.style.width = value + '%';
+    ldCount.textContent = String(shown).padStart(3, '0') + '%';
+    ldStatus.textContent = shown >= 100 ? 'Entering orbit' : 'Calibrating gravity field';
+    if (value >= 99.9 && window.BT.ready && !finishing) {
+      finishing = true;
+      setTimeout(() => loader.classList.add('leaving'), 140);
+      setTimeout(onDone, 140 + 520);
+      return;
     }
+    requestAnimationFrame(loaderFrame);
+  }
+  requestAnimationFrame(loaderFrame);
+  function onDone() {
+    control.started = true;
+    document.body.classList.add('revealed');
+    setTimeout(() => loader.remove(), 600);
+  }
 
-    function pointerPrototype() {
-        this.id = -1;
-        this.x = 0;
-        this.y = 0;
-        this.dx = 0;
-        this.dy = 0;
-        this.down = false;
-        this.moved = false;
-        this.color = [30, 0, 300];
+  /* ---------- Scene controls drawer ---------- */
+  const THEMES = [
+    { id: 'roseGold', name: 'Royal Blue & Pearl', desc: 'Hyper-distinct cobalt spheres floating in soft white-slate gradients.', primary: '#2F69FF', ball: '#2F69FF',
+      grad: 'radial-gradient(circle at center, #ffffff 0%, #ecefff 35%, #c2d1ff 100%)' },
+    { id: 'pinkBlush', name: 'Rose Blush & Crème', desc: 'Sweet candy pinks and juicy strawberry accents in a pearl studio.', primary: '#FFA6B3', ball: '#FFC5C2',
+      grad: 'radial-gradient(circle at center, #ffffff 0%, #fff0f1 38%, #ffd1d5 100%)' },
+    { id: 'voltLime', name: 'Volt Lime & Slate', desc: 'Electric neon volt-lime against a clean white-slate horizon.', primary: '#E1FC03', ball: '#E1FC03',
+      grad: 'radial-gradient(circle at center, #ffffff 0%, #fbffe5 38%, #e8ff9c 100%)' },
+    { id: 'arcticBlue', name: 'Arctic Sky & Crystal', desc: 'Cool arctic crystal blues with a translucent glass sheen.', primary: '#96E5FF', ball: '#96E5FF',
+      grad: 'radial-gradient(circle at center, #ffffff 0%, #eef9ff 35%, #c9f1ff 100%)' },
+  ];
+  let selected = 'roseGold';
+  window.BT.ballColor = '#2F69FF';
+  const themesEl = document.getElementById('themes');
+  function renderThemes() {
+    themesEl.innerHTML = '';
+    for (const t of THEMES) {
+      const b = document.createElement('button');
+      b.className = 'theme-opt';
+      b.setAttribute('aria-pressed', String(t.id === selected));
+      b.innerHTML = '<div class="t"><span></span><i class="sw"></i></div><div class="d"></div>';
+      b.querySelector('.t span').textContent = t.name;
+      b.querySelector('.sw').style.background = t.primary;
+      b.querySelector('.d').textContent = t.desc;
+      b.addEventListener('click', () => selectTheme(t.id));
+      themesEl.appendChild(b);
     }
+  }
+  function selectTheme(id) {
+    if (id === selected) return;
+    selected = id;
+    const t = THEMES.find((x) => x.id === id);
+    window.BT.ballColor = t.ball;
+    document.getElementById('bg').style.setProperty('--hero-grad', t.grad);
+    renderThemes();
+    if (window.BT.rebuild) window.BT.rebuild(t.ball);
+  }
+  renderThemes();
+  const drawer = document.getElementById('drawer');
+  const scrim = document.getElementById('scrim');
+  const openBtn = document.getElementById('openControls');
+  let drawerOpen = false;
+  function setDrawer(open) {
+    drawerOpen = open;
+    drawer.classList.toggle('open', open);
+    scrim.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', String(!open));
+    openBtn.setAttribute('aria-expanded', String(open));
+    if (open) document.getElementById('closeControls').focus(); else openBtn.focus({ preventScroll: true });
+  }
+  openBtn.addEventListener('click', () => setDrawer(true));
+  document.getElementById('closeControls').addEventListener('click', () => setDrawer(false));
+  scrim.addEventListener('click', () => setDrawer(false));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && drawerOpen) setDrawer(false); });
+  document.getElementById('resetTheme').addEventListener('click', () => selectTheme('roseGold'));
 
-    let pointers = [];
-    let splatStack = [];
-    let bloomFramebuffers = [];
-    pointers.push(new pointerPrototype());
-
-    const { gl, ext } = getWebGLContext(canvas);
-
-    if (isMobile())
-        config.SHADING = false;
-    if (!ext.supportLinearFiltering) {
-        config.SHADING = false;
-        config.BLOOM = false;
+  /* ---------- Interest form → Google Sheet ---------- */
+  const form = document.getElementById('interestForm');
+  const statusEl = document.getElementById('formStatus');
+  const CONTACT = 'vop.president.omegasigma@outlook.com';
+  function setStatus(msg, kind) { statusEl.textContent = msg; statusEl.className = 'form-status' + (kind ? ' ' + kind : ''); }
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const role = data.get('role');
+    const nameEl = form.elements.name, emailEl = form.elements.email;
+    nameEl.setAttribute('aria-invalid', String(!name));
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    emailEl.setAttribute('aria-invalid', String(!emailOk));
+    if (!name) { setStatus('Please enter your name.', 'err'); nameEl.focus(); return; }
+    if (!emailOk) { setStatus('Please enter a valid email address.', 'err'); emailEl.focus(); return; }
+    if (!role) { setStatus('Please choose attendee or presenter.', 'err'); form.querySelector('input[name="role"]').focus(); return; }
+    if (data.get('website')) { setStatus('Thanks! You\'re on the list.', 'ok'); form.reset(); return; } // bot honeypot
+    if (!SHEET_ENDPOINT) {
+      setStatus('The sign-up form isn\'t connected yet. Please email ' + CONTACT + ' to let us know you\'re interested.', 'err');
+      return;
     }
-
-    function getWebGLContext(canvas) {
-        const params = { alpha: true, depth: false, stencil: false, antialias: false, preserveDrawingBuffer: false };
-
-        let gl = canvas.getContext('webgl2', params);
-        const isWebGL2 = !!gl;
-        if (!isWebGL2)
-            gl = canvas.getContext('webgl', params) || canvas.getContext('experimental-webgl', params);
-
-        let halfFloat;
-        let supportLinearFiltering;
-        if (isWebGL2) {
-            gl.getExtension('EXT_color_buffer_float');
-            supportLinearFiltering = gl.getExtension('OES_texture_float_linear');
-        } else {
-            halfFloat = gl.getExtension('OES_texture_half_float');
-            supportLinearFiltering = gl.getExtension('OES_texture_half_float_linear');
-        }
-
-        gl.clearColor(0.0, 0.0, 0.0, 1.0);
-
-        const halfFloatTexType = isWebGL2 ? gl.HALF_FLOAT : halfFloat.HALF_FLOAT_OES;
-        let formatRGBA;
-        let formatRG;
-        let formatR;
-
-        if (isWebGL2) {
-            formatRGBA = getSupportedFormat(gl, gl.RGBA16F, gl.RGBA, halfFloatTexType);
-            formatRG = getSupportedFormat(gl, gl.RG16F, gl.RG, halfFloatTexType);
-            formatR = getSupportedFormat(gl, gl.R16F, gl.RED, halfFloatTexType);
-        }
-        else {
-            formatRGBA = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType);
-            formatRG = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType);
-            formatR = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType);
-        }
-
-        return {
-            gl,
-            ext: {
-                formatRGBA,
-                formatRG,
-                formatR,
-                halfFloatTexType,
-                supportLinearFiltering
-            }
-        };
+    const btn = form.querySelector('.submit');
+    btn.disabled = true;
+    setStatus('Sending…');
+    try {
+      const body = new URLSearchParams({ name, email, role, page: location.href });
+      // Apps Script web apps don't send CORS headers, so the request is fire-and-forget (opaque response).
+      await fetch(SHEET_ENDPOINT, { method: 'POST', mode: 'no-cors', body });
+      setStatus('Thanks, ' + name.split(' ')[0] + '! You\'re on the list. We\'ll be in touch.', 'ok');
+      form.reset();
+    } catch (err) {
+      setStatus('Something went wrong. Please try again or email ' + CONTACT + '.', 'err');
+    } finally {
+      btn.disabled = false;
     }
-
-    function getSupportedFormat(gl, internalFormat, format, type) {
-        if (!supportRenderTextureFormat(gl, internalFormat, format, type)) {
-            switch (internalFormat) {
-                case gl.R16F:
-                    return getSupportedFormat(gl, gl.RG16F, gl.RG, type);
-                case gl.RG16F:
-                    return getSupportedFormat(gl, gl.RGBA16F, gl.RGBA, type);
-                default:
-                    return null;
-            }
-        }
-
-        return {
-            internalFormat,
-            format
-        }
-    }
-
-    function supportRenderTextureFormat(gl, internalFormat, format, type) {
-        let texture = gl.createTexture();
-        gl.bindTexture(gl.TEXTURE_2D, texture);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-        gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat, 4, 4, 0, format, type, null);
-
-        let fbo = gl.createFramebuffer();
-        gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
-        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
-
-        const status = gl.checkFramebufferStatus(gl.FRAMEBUFFER);
-        if (status != gl.FRAMEBUFFER_COMPLETE)
-            return false;
-        return true;
-    }
-
-    function clamp01(input) {
-        return Math.min(Math.max(input, 0), 1);
-    }
-
-    function isMobile() {
-        return /Mobi|Android/i.test(navigator.userAgent);
-    }
-
-    class GLProgram {
-        constructor(vertexShader, fragmentShader) {
-            this.uniforms = {};
-            this.program = gl.createProgram();
-
-            gl.attachShader(this.program, vertexShader);
-            gl.attachShader(this.program, fragmentShader);
-            gl.linkProgram(this.program);
-
-            if (!gl.getProgramParameter(this.program, gl.LINK_STATUS))
-                throw gl.getProgramInfoLog(this.program);
-
-            const uniformCount = gl.getProgramParameter(this.program, gl.ACTIVE_UNIFORMS);
-            for (let i = 0; i < uniformCount; i++) {
-                const uniformName = gl.getActiveUniform(this.program, i).name;
-                this.uniforms[uniformName] = gl.getUniformLocation(this.program, uniformName);
-            }
-        }
-
-        bind() {
-            gl.useProgram(this.program);
-        }
-    }
-
-    function compileShader(type, source) {
-        const shader = gl.createShader(type);
-        gl.shaderSource(shader, source);
-        gl.compileShader(shader);
-
-        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS))
-            throw gl.getShaderInfoLog(shader);
-
-        return shader;
-    };
-
-    const baseVertexShader = compileShader(gl.VERTEX_SHADER, `
-        precision highp float;
-        attribute vec2 aPosition;
-        varying vec2 vUv;
-        varying vec2 vL;
-        varying vec2 vR;
-        varying vec2 vT;
-        varying vec2 vB;
-        uniform vec2 texelSize;
-        void main () {
-            vUv = aPosition * 0.5 + 0.5;
-            vL = vUv - vec2(texelSize.x, 0.0);
-            vR = vUv + vec2(texelSize.x, 0.0);
-            vT = vUv + vec2(0.0, texelSize.y);
-            vB = vUv - vec2(0.0, texelSize.y);
-            gl_Position = vec4(aPosition, 0.0, 1.0);
-        }
-    `);
-
-    const clearShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision mediump float;
-        precision mediump sampler2D;
-        varying highp vec2 vUv;
-        uniform sampler2D uTexture;
-        uniform float value;
-        void main () {
-            gl_FragColor = value * texture2D(uTexture, vUv);
-        }
-    `);
-
-    const colorShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision mediump float;
-        uniform vec4 color;
-        void main () {
-            gl_FragColor = color;
-        }
-    `);
-
-    const backgroundShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision highp float;
-        precision highp sampler2D;
-        varying vec2 vUv;
-        uniform sampler2D uTexture;
-        uniform float aspectRatio;
-        #define SCALE 25.0
-        void main () {
-            vec2 uv = floor(vUv * SCALE * vec2(aspectRatio, 1.0));
-            float v = mod(uv.x + uv.y, 2.0);
-            v = v * 0.1 + 0.8;
-            gl_FragColor = vec4(vec3(v), 1.0);
-        }
-    `);
-
-    const displayShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision highp float;
-        precision highp sampler2D;
-        varying vec2 vUv;
-        uniform sampler2D uTexture;
-        void main () {
-            vec3 C = texture2D(uTexture, vUv).rgb;
-            float a = max(C.r, max(C.g, C.b));
-            gl_FragColor = vec4(C, a);
-        }
-    `);
-
-    const displayBloomShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision highp float;
-        precision highp sampler2D;
-        varying vec2 vUv;
-        uniform sampler2D uTexture;
-        uniform sampler2D uBloom;
-        uniform sampler2D uDithering;
-        uniform vec2 ditherScale;
-        void main () {
-            vec3 C = texture2D(uTexture, vUv).rgb;
-            vec3 bloom = texture2D(uBloom, vUv).rgb;
-            vec3 noise = texture2D(uDithering, vUv * ditherScale).rgb;
-            noise = noise * 2.0 - 1.0;
-            bloom += noise / 800.0;
-            bloom = pow(bloom.rgb, vec3(1.0 / 2.2));
-            C += bloom;
-            float a = max(C.r, max(C.g, C.b));
-            gl_FragColor = vec4(C, a);
-        }
-    `);
-
-    const displayShadingShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision highp float;
-        precision highp sampler2D;
-        varying vec2 vUv;
-        varying vec2 vL;
-        varying vec2 vR;
-        varying vec2 vT;
-        varying vec2 vB;
-        uniform sampler2D uTexture;
-        uniform vec2 texelSize;
-        void main () {
-            vec3 L = texture2D(uTexture, vL).rgb;
-            vec3 R = texture2D(uTexture, vR).rgb;
-            vec3 T = texture2D(uTexture, vT).rgb;
-            vec3 B = texture2D(uTexture, vB).rgb;
-            vec3 C = texture2D(uTexture, vUv).rgb;
-            float dx = length(R) - length(L);
-            float dy = length(T) - length(B);
-            vec3 n = normalize(vec3(dx, dy, length(texelSize)));
-            vec3 l = vec3(0.0, 0.0, 1.0);
-            float diffuse = clamp(dot(n, l) + 0.7, 0.7, 1.0);
-            C.rgb *= diffuse;
-            float a = max(C.r, max(C.g, C.b));
-            gl_FragColor = vec4(C, a);
-        }
-    `);
-
-    const displayBloomShadingShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision highp float;
-        precision highp sampler2D;
-        varying vec2 vUv;
-        varying vec2 vL;
-        varying vec2 vR;
-        varying vec2 vT;
-        varying vec2 vB;
-        uniform sampler2D uTexture;
-        uniform sampler2D uBloom;
-        uniform sampler2D uDithering;
-        uniform vec2 ditherScale;
-        uniform vec2 texelSize;
-        void main () {
-            vec3 L = texture2D(uTexture, vL).rgb;
-            vec3 R = texture2D(uTexture, vR).rgb;
-            vec3 T = texture2D(uTexture, vT).rgb;
-            vec3 B = texture2D(uTexture, vB).rgb;
-            vec3 C = texture2D(uTexture, vUv).rgb;
-            float dx = length(R) - length(L);
-            float dy = length(T) - length(B);
-            vec3 n = normalize(vec3(dx, dy, length(texelSize)));
-            vec3 l = vec3(0.0, 0.0, 1.0);
-            float diffuse = clamp(dot(n, l) + 0.7, 0.7, 1.0);
-            C *= diffuse;
-            vec3 bloom = texture2D(uBloom, vUv).rgb;
-            vec3 noise = texture2D(uDithering, vUv * ditherScale).rgb;
-            noise = noise * 2.0 - 1.0;
-            bloom += noise / 800.0;
-            bloom = pow(bloom.rgb, vec3(1.0 / 2.2));
-            C += bloom;
-            float a = max(C.r, max(C.g, C.b));
-            gl_FragColor = vec4(C, a);
-        }
-    `);
-
-    const bloomPrefilterShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision mediump float;
-        precision mediump sampler2D;
-        varying vec2 vUv;
-        uniform sampler2D uTexture;
-        uniform vec3 curve;
-        uniform float threshold;
-        void main () {
-            vec3 c = texture2D(uTexture, vUv).rgb;
-            float br = max(c.r, max(c.g, c.b));
-            float rq = clamp(br - curve.x, 0.0, curve.y);
-            rq = curve.z * rq * rq;
-            c *= max(rq, br - threshold) / max(br, 0.0001);
-            gl_FragColor = vec4(c, 0.0);
-        }
-    `);
-
-    const bloomBlurShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision mediump float;
-        precision mediump sampler2D;
-        varying vec2 vL;
-        varying vec2 vR;
-        varying vec2 vT;
-        varying vec2 vB;
-        uniform sampler2D uTexture;
-        void main () {
-            vec4 sum = vec4(0.0);
-            sum += texture2D(uTexture, vL);
-            sum += texture2D(uTexture, vR);
-            sum += texture2D(uTexture, vT);
-            sum += texture2D(uTexture, vB);
-            sum *= 0.25;
-            gl_FragColor = sum;
-        }
-    `);
-
-    const bloomFinalShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision mediump float;
-        precision mediump sampler2D;
-        varying vec2 vL;
-        varying vec2 vR;
-        varying vec2 vT;
-        varying vec2 vB;
-        uniform sampler2D uTexture;
-        uniform float intensity;
-        void main () {
-            vec4 sum = vec4(0.0);
-            sum += texture2D(uTexture, vL);
-            sum += texture2D(uTexture, vR);
-            sum += texture2D(uTexture, vT);
-            sum += texture2D(uTexture, vB);
-            sum *= 0.25;
-            gl_FragColor = sum * intensity;
-        }
-    `);
-
-    const splatShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision highp float;
-        precision highp sampler2D;
-        varying vec2 vUv;
-        uniform sampler2D uTarget;
-        uniform float aspectRatio;
-        uniform vec3 color;
-        uniform vec2 point;
-        uniform float radius;
-        void main () {
-            vec2 p = vUv - point.xy;
-            p.x *= aspectRatio;
-            vec3 splat = exp(-dot(p, p) / radius) * color;
-            vec3 base = texture2D(uTarget, vUv).xyz;
-            gl_FragColor = vec4(base + splat, 1.0);
-        }
-    `);
-
-    const advectionManualFilteringShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision highp float;
-        precision highp sampler2D;
-        varying vec2 vUv;
-        uniform sampler2D uVelocity;
-        uniform sampler2D uSource;
-        uniform vec2 texelSize;
-        uniform vec2 dyeTexelSize;
-        uniform float dt;
-        uniform float dissipation;
-        vec4 bilerp (sampler2D sam, vec2 uv, vec2 tsize) {
-            vec2 st = uv / tsize - 0.5;
-            vec2 iuv = floor(st);
-            vec2 fuv = fract(st);
-            vec4 a = texture2D(sam, (iuv + vec2(0.5, 0.5)) * tsize);
-            vec4 b = texture2D(sam, (iuv + vec2(1.5, 0.5)) * tsize);
-            vec4 c = texture2D(sam, (iuv + vec2(0.5, 1.5)) * tsize);
-            vec4 d = texture2D(sam, (iuv + vec2(1.5, 1.5)) * tsize);
-            return mix(mix(a, b, fuv.x), mix(c, d, fuv.x), fuv.y);
-        }
-        void main () {
-            vec2 coord = vUv - dt * bilerp(uVelocity, vUv, texelSize).xy * texelSize;
-            gl_FragColor = dissipation * bilerp(uSource, coord, dyeTexelSize);
-            gl_FragColor.a = 1.0;
-        }
-    `);
-
-    const advectionShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision highp float;
-        precision highp sampler2D;
-        varying vec2 vUv;
-        uniform sampler2D uVelocity;
-        uniform sampler2D uSource;
-        uniform vec2 texelSize;
-        uniform float dt;
-        uniform float dissipation;
-        void main () {
-            vec2 coord = vUv - dt * texture2D(uVelocity, vUv).xy * texelSize;
-            gl_FragColor = dissipation * texture2D(uSource, coord);
-            gl_FragColor.a = 1.0;
-        }
-    `);
-
-    const divergenceShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision mediump float;
-        precision mediump sampler2D;
-        varying highp vec2 vUv;
-        varying highp vec2 vL;
-        varying highp vec2 vR;
-        varying highp vec2 vT;
-        varying highp vec2 vB;
-        uniform sampler2D uVelocity;
-        void main () {
-            float L = texture2D(uVelocity, vL).x;
-            float R = texture2D(uVelocity, vR).x;
-            float T = texture2D(uVelocity, vT).y;
-            float B = texture2D(uVelocity, vB).y;
-            vec2 C = texture2D(uVelocity, vUv).xy;
-            if (vL.x < 0.0) { L = -C.x; }
-            if (vR.x > 1.0) { R = -C.x; }
-            if (vT.y > 1.0) { T = -C.y; }
-            if (vB.y < 0.0) { B = -C.y; }
-            float div = 0.5 * (R - L + T - B);
-            gl_FragColor = vec4(div, 0.0, 0.0, 1.0);
-        }
-    `);
-
-    const curlShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision mediump float;
-        precision mediump sampler2D;
-        varying highp vec2 vUv;
-        varying highp vec2 vL;
-        varying highp vec2 vR;
-        varying highp vec2 vT;
-        varying highp vec2 vB;
-        uniform sampler2D uVelocity;
-        void main () {
-            float L = texture2D(uVelocity, vL).y;
-            float R = texture2D(uVelocity, vR).y;
-            float T = texture2D(uVelocity, vT).x;
-            float B = texture2D(uVelocity, vB).x;
-            float vorticity = R - L - T + B;
-            gl_FragColor = vec4(0.5 * vorticity, 0.0, 0.0, 1.0);
-        }
-    `);
-
-    const vorticityShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision highp float;
-        precision highp sampler2D;
-        varying vec2 vUv;
-        varying vec2 vL;
-        varying vec2 vR;
-        varying vec2 vT;
-        varying vec2 vB;
-        uniform sampler2D uVelocity;
-        uniform sampler2D uCurl;
-        uniform float curl;
-        uniform float dt;
-        void main () {
-            float L = texture2D(uCurl, vL).x;
-            float R = texture2D(uCurl, vR).x;
-            float T = texture2D(uCurl, vT).x;
-            float B = texture2D(uCurl, vB).x;
-            float C = texture2D(uCurl, vUv).x;
-            vec2 force = 0.5 * vec2(abs(T) - abs(B), abs(R) - abs(L));
-            force /= length(force) + 0.0001;
-            force *= curl * C;
-            force.y *= -1.0;
-            vec2 vel = texture2D(uVelocity, vUv).xy;
-            gl_FragColor = vec4(vel + force * dt, 0.0, 1.0);
-        }
-    `);
-
-    const pressureShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision mediump float;
-        precision mediump sampler2D;
-        varying highp vec2 vUv;
-        varying highp vec2 vL;
-        varying highp vec2 vR;
-        varying highp vec2 vT;
-        varying highp vec2 vB;
-        uniform sampler2D uPressure;
-        uniform sampler2D uDivergence;
-        vec2 boundary (vec2 uv) {
-            return uv;
-        }
-        void main () {
-            float L = texture2D(uPressure, boundary(vL)).x;
-            float R = texture2D(uPressure, boundary(vR)).x;
-            float T = texture2D(uPressure, boundary(vT)).x;
-            float B = texture2D(uPressure, boundary(vB)).x;
-            float C = texture2D(uPressure, vUv).x;
-            float divergence = texture2D(uDivergence, vUv).x;
-            float pressure = (L + R + B + T - divergence) * 0.25;
-            gl_FragColor = vec4(pressure, 0.0, 0.0, 1.0);
-        }
-    `);
-
-    const gradientSubtractShader = compileShader(gl.FRAGMENT_SHADER, `
-        precision mediump float;
-        precision mediump sampler2D;
-        varying highp vec2 vUv;
-        varying highp vec2 vL;
-        varying highp vec2 vR;
-        varying highp vec2 vT;
-        varying highp vec2 vB;
-        uniform sampler2D uPressure;
-        uniform sampler2D uVelocity;
-        vec2 boundary (vec2 uv) {
-            return uv;
-        }
-        void main () {
-            float L = texture2D(uPressure, boundary(vL)).x;
-            float R = texture2D(uPressure, boundary(vR)).x;
-            float T = texture2D(uPressure, boundary(vT)).x;
-            float B = texture2D(uPressure, boundary(vB)).x;
-            vec2 velocity = texture2D(uVelocity, vUv).xy;
-            velocity.xy -= vec2(R - L, T - B);
-            gl_FragColor = vec4(velocity, 0.0, 1.0);
-        }
-    `);
-
-    const blit = (() => {
-        gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
-        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, -1, 1, 1, 1, 1, -1]), gl.STATIC_DRAW);
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, gl.createBuffer());
-        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array([0, 1, 2, 0, 2, 3]), gl.STATIC_DRAW);
-        gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
-        gl.enableVertexAttribArray(0);
-
-        return (destination) => {
-            gl.bindFramebuffer(gl.FRAMEBUFFER, destination);
-            gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
-        }
-    })();
-
-    let simWidth;
-    let simHeight;
-    let dyeWidth;
-    let dyeHeight;
-    let density;
-    let velocity;
-    let divergence;
-    let curl;
-    let pressure;
-    let bloom;
-
-    let ditheringTexture = createNoiseTexture(256);
-
-    const clearProgram = new GLProgram(baseVertexShader, clearShader);
-    const colorProgram = new GLProgram(baseVertexShader, colorShader);
-    const backgroundProgram = new GLProgram(baseVertexShader, backgroundShader);
-    const displayProgram = new GLProgram(baseVertexShader, displayShader);
-    const displayBloomProgram = new GLProgram(baseVertexShader, displayBloomShader);
-    const displayShadingProgram = new GLProgram(baseVertexShader, displayShadingShader);
-    const displayBloomShadingProgram = new GLProgram(baseVertexShader, displayBloomShadingShader);
-    const bloomPrefilterProgram = new GLProgram(baseVertexShader, bloomPrefilterShader);
-    const bloomBlurProgram = new GLProgram(baseVertexShader, bloomBlurShader);
-    const bloomFinalProgram = new GLProgram(baseVertexShader, bloomFinalShader);
-    const splatProgram = new GLProgram(baseVertexShader, splatShader);
-    const advectionProgram = new GLProgram(baseVertexShader, ext.supportLinearFiltering ? advectionShader : advectionManualFilteringShader);
-    const divergenceProgram = new GLProgram(baseVertexShader, divergenceShader);
-    const curlProgram = new GLProgram(baseVertexShader, curlShader);
-    const vorticityProgram = new GLProgram(baseVertexShader, vorticityShader);
-    const pressureProgram = new GLProgram(baseVertexShader, pressureShader);
-    const gradienSubtractProgram = new GLProgram(baseVertexShader, gradientSubtractShader);
-
-    function initFramebuffers() {
-        let simRes = getResolution(config.SIM_RESOLUTION);
-        let dyeRes = getResolution(config.DYE_RESOLUTION);
-
-        simWidth = simRes.width;
-        simHeight = simRes.height;
-        dyeWidth = dyeRes.width;
-        dyeHeight = dyeRes.height;
-
-        const texType = ext.halfFloatTexType;
-        const rgba = ext.formatRGBA;
-        const rg = ext.formatRG;
-        const r = ext.formatR;
-        const filtering = ext.supportLinearFiltering ? gl.LINEAR : gl.NEAREST;
-
-        if (density == null)
-            density = createDoubleFBO(dyeWidth, dyeHeight, rgba.internalFormat, rgba.format, texType, filtering);
-        else
-            density = resizeDoubleFBO(density, dyeWidth, dyeHeight, rgba.internalFormat, rgba.format, texType, filtering);
-
-        if (velocity == null)
-            velocity = createDoubleFBO(simWidth, simHeight, rg.internalFormat, rg.format, texType, filtering);
-        else
-            velocity = resizeDoubleFBO(velocity, simWidth, simHeight, rg.internalFormat, rg.format, texType, filtering);
-
-        divergence = createFBO(simWidth, simHeight, r.internalFormat, r.format, texType, gl.NEAREST);
-        curl = createFBO(simWidth, simHeight, r.internalFormat, r.format, texType, gl.NEAREST);
-        pressure = createDoubleFBO(simWidth, simHeight, r.internalFormat, r.format, texType, gl.NEAREST);
-
-        initBloomFramebuffers();
-    }
-
-    function initBloomFramebuffers() {
-        let res = getResolution(config.BLOOM_RESOLUTION);
-
-        const texType = ext.halfFloatTexType;
-        const rgba = ext.formatRGBA;
-        const filtering = ext.supportLinearFiltering ? gl.LINEAR : gl.NEAREST;
-
-        bloom = createFBO(res.width, res.height, rgba.internalFormat, rgba.format, texType, filtering);
-
-        bloomFramebuffers.length = 0;
-        for (let i = 0; i < config.BLOOM_ITERATIONS; i++) {
-            let width = res.width >> (i + 1);
-            let height = res.height >> (i + 1);
-
-            if (width < 2 || height < 2) break;
-
-            let fbo = createFBO(width, height, rgba.internalFormat, rgba.format, texType, filtering);
-            bloomFramebuffers.push(fbo);
-        }
-    }
-
-    function createFBO(w, h, internalFormat, format, type, param) {
-        gl.activeTexture(gl.TEXTURE0);
-        let texture = gl.createTexture();
-        gl.bindTexture(gl.TEXTURE_2D, texture);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, param);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, param);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-        gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat, w, h, 0, format, type, null);
-
-        let fbo = gl.createFramebuffer();
-        gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
-        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
-        gl.viewport(0, 0, w, h);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-
-        return {
-            texture,
-            fbo,
-            width: w,
-            height: h,
-            attach(id) {
-                gl.activeTexture(gl.TEXTURE0 + id);
-                gl.bindTexture(gl.TEXTURE_2D, texture);
-                return id;
-            }
-        };
-    }
-
-    function createDoubleFBO(w, h, internalFormat, format, type, param) {
-        let fbo1 = createFBO(w, h, internalFormat, format, type, param);
-        let fbo2 = createFBO(w, h, internalFormat, format, type, param);
-
-        return {
-            get read() { return fbo1; },
-            set read(value) { fbo1 = value; },
-            get write() { return fbo2; },
-            set write(value) { fbo2 = value; },
-            swap() {
-                let temp = fbo1;
-                fbo1 = fbo2;
-                fbo2 = temp;
-            }
-        }
-    }
-
-    function resizeFBO(target, w, h, internalFormat, format, type, param) {
-        let newFBO = createFBO(w, h, internalFormat, format, type, param);
-        clearProgram.bind();
-        gl.uniform1i(clearProgram.uniforms.uTexture, target.attach(0));
-        gl.uniform1f(clearProgram.uniforms.value, 1);
-        blit(newFBO.fbo);
-        return newFBO;
-    }
-
-    function resizeDoubleFBO(target, w, h, internalFormat, format, type, param) {
-        target.read = resizeFBO(target.read, w, h, internalFormat, format, type, param);
-        target.write = createFBO(w, h, internalFormat, format, type, param);
-        return target;
-    }
-
-    function createNoiseTexture(size) {
-        const data = new Uint8Array(size * size * 3);
-        for (let i = 0; i < data.length; i++)
-            data[i] = Math.floor(Math.random() * 256);
-        let texture = gl.createTexture();
-        gl.bindTexture(gl.TEXTURE_2D, texture);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
-        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, size, size, 0, gl.RGB, gl.UNSIGNED_BYTE, data);
-        return {
-            texture,
-            width: size,
-            height: size,
-            attach(id) {
-                gl.activeTexture(gl.TEXTURE0 + id);
-                gl.bindTexture(gl.TEXTURE_2D, texture);
-                return id;
-            }
-        };
-    }
-
-    initFramebuffers();
-    multipleSplats(34);
-    for (let i = 0; i < 8; i++)
-        splatStack.push(10 + parseInt(Math.random() * 10));
-
-    let lastColorChangeTime = Date.now();
-    let virtualSeeded = false;
-    let orbitAngle = 0;
-    let vPrevX = 0, vPrevY = 0;
-    let virtualColor = null;
-    let lastVColorTime = 0;
-    const engineStart = Date.now();
-    const ORBIT_RADIUS = 300;
-    const ORBIT_SPEED = 0.026;
-    const ORBIT_START_DELAY = 700;
-
-    let rafHandle = 0;
-    let destroyed = false;
-
-    update();
-
-    function update() {
-        if (destroyed) return;
-        resizeCanvas();
-        driveVirtualPointer();
-        input();
-        if (!config.PAUSED)
-            step(0.016);
-        render(null);
-        rafHandle = requestAnimationFrame(update);
-    }
-
-    function driveVirtualPointer() {
-        if (Date.now() - engineStart < ORBIT_START_DELAY)
-            return;
-        const cx = canvas.width / 2;
-        const cy = canvas.height / 2;
-        const base = Math.min(ORBIT_RADIUS, canvas.width * 0.35, canvas.height * 0.35);
-        const r = base * (0.72 + 0.28 * Math.sin(orbitAngle * 0.37));
-        orbitAngle += ORBIT_SPEED;
-        const x = cx + Math.cos(orbitAngle) * r;
-        const y = cy + Math.sin(orbitAngle) * r;
-        if (!virtualSeeded) {
-            virtualSeeded = true;
-            vPrevX = x;
-            vPrevY = y;
-            return;
-        }
-        if (!virtualColor || Date.now() - lastVColorTime > 120) {
-            virtualColor = generateColor();
-            virtualColor.r *= 3.2;
-            virtualColor.g *= 3.2;
-            virtualColor.b *= 3.2;
-            lastVColorTime = Date.now();
-        }
-        const dx = (x - vPrevX) * 9.0;
-        const dy = (y - vPrevY) * 9.0;
-        vPrevX = x;
-        vPrevY = y;
-        splat(x, y, dx, dy, virtualColor);
-    }
-
-    function input() {
-        if (splatStack.length > 0)
-            multipleSplats(splatStack.pop());
-
-        for (let i = 0; i < pointers.length; i++) {
-            const p = pointers[i];
-            if (p.moved) {
-                splat(p.x, p.y, p.dx, p.dy, p.color);
-                p.moved = false;
-            }
-        }
-
-        if (!config.COLORFUL)
-            return;
-
-        if (lastColorChangeTime + 100 < Date.now()) {
-            lastColorChangeTime = Date.now();
-            for (let i = 0; i < pointers.length; i++) {
-                const p = pointers[i];
-                p.color = generateColor();
-            }
-        }
-    }
-
-    function step(dt) {
-        gl.disable(gl.BLEND);
-        gl.viewport(0, 0, simWidth, simHeight);
-
-        curlProgram.bind();
-        gl.uniform2f(curlProgram.uniforms.texelSize, 1.0 / simWidth, 1.0 / simHeight);
-        gl.uniform1i(curlProgram.uniforms.uVelocity, velocity.read.attach(0));
-        blit(curl.fbo);
-
-        vorticityProgram.bind();
-        gl.uniform2f(vorticityProgram.uniforms.texelSize, 1.0 / simWidth, 1.0 / simHeight);
-        gl.uniform1i(vorticityProgram.uniforms.uVelocity, velocity.read.attach(0));
-        gl.uniform1i(vorticityProgram.uniforms.uCurl, curl.attach(1));
-        gl.uniform1f(vorticityProgram.uniforms.curl, config.CURL);
-        gl.uniform1f(vorticityProgram.uniforms.dt, dt);
-        blit(velocity.write.fbo);
-        velocity.swap();
-
-        divergenceProgram.bind();
-        gl.uniform2f(divergenceProgram.uniforms.texelSize, 1.0 / simWidth, 1.0 / simHeight);
-        gl.uniform1i(divergenceProgram.uniforms.uVelocity, velocity.read.attach(0));
-        blit(divergence.fbo);
-
-        clearProgram.bind();
-        gl.uniform1i(clearProgram.uniforms.uTexture, pressure.read.attach(0));
-        gl.uniform1f(clearProgram.uniforms.value, config.PRESSURE_DISSIPATION);
-        blit(pressure.write.fbo);
-        pressure.swap();
-
-        pressureProgram.bind();
-        gl.uniform2f(pressureProgram.uniforms.texelSize, 1.0 / simWidth, 1.0 / simHeight);
-        gl.uniform1i(pressureProgram.uniforms.uDivergence, divergence.attach(0));
-        for (let i = 0; i < config.PRESSURE_ITERATIONS; i++) {
-            gl.uniform1i(pressureProgram.uniforms.uPressure, pressure.read.attach(1));
-            blit(pressure.write.fbo);
-            pressure.swap();
-        }
-
-        gradienSubtractProgram.bind();
-        gl.uniform2f(gradienSubtractProgram.uniforms.texelSize, 1.0 / simWidth, 1.0 / simHeight);
-        gl.uniform1i(gradienSubtractProgram.uniforms.uPressure, pressure.read.attach(0));
-        gl.uniform1i(gradienSubtractProgram.uniforms.uVelocity, velocity.read.attach(1));
-        blit(velocity.write.fbo);
-        velocity.swap();
-
-        advectionProgram.bind();
-        gl.uniform2f(advectionProgram.uniforms.texelSize, 1.0 / simWidth, 1.0 / simHeight);
-        if (!ext.supportLinearFiltering)
-            gl.uniform2f(advectionProgram.uniforms.dyeTexelSize, 1.0 / simWidth, 1.0 / simHeight);
-        let velocityId = velocity.read.attach(0);
-        gl.uniform1i(advectionProgram.uniforms.uVelocity, velocityId);
-        gl.uniform1i(advectionProgram.uniforms.uSource, velocityId);
-        gl.uniform1f(advectionProgram.uniforms.dt, dt);
-        gl.uniform1f(advectionProgram.uniforms.dissipation, config.VELOCITY_DISSIPATION);
-        blit(velocity.write.fbo);
-        velocity.swap();
-
-        gl.viewport(0, 0, dyeWidth, dyeHeight);
-
-        if (!ext.supportLinearFiltering)
-            gl.uniform2f(advectionProgram.uniforms.dyeTexelSize, 1.0 / dyeWidth, 1.0 / dyeHeight);
-        gl.uniform1i(advectionProgram.uniforms.uVelocity, velocity.read.attach(0));
-        gl.uniform1i(advectionProgram.uniforms.uSource, density.read.attach(1));
-        gl.uniform1f(advectionProgram.uniforms.dissipation, config.DENSITY_DISSIPATION);
-        blit(density.write.fbo);
-        density.swap();
-    }
-
-    function render(target) {
-        if (config.BLOOM)
-            applyBloom(density.read, bloom);
-
-        if (target == null || !config.TRANSPARENT) {
-            gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-            gl.enable(gl.BLEND);
-        }
-        else {
-            gl.disable(gl.BLEND);
-        }
-
-        let width = target == null ? gl.drawingBufferWidth : dyeWidth;
-        let height = target == null ? gl.drawingBufferHeight : dyeHeight;
-
-        gl.viewport(0, 0, width, height);
-
-        if (!config.TRANSPARENT) {
-            colorProgram.bind();
-            let bc = config.BACK_COLOR;
-            gl.uniform4f(colorProgram.uniforms.color, bc.r / 255, bc.g / 255, bc.b / 255, 1);
-            blit(target);
-        }
-
-        if (target == null && config.TRANSPARENT) {
-            backgroundProgram.bind();
-            gl.uniform1f(backgroundProgram.uniforms.aspectRatio, canvas.width / canvas.height);
-            blit(null);
-        }
-
-        if (config.SHADING) {
-            let program = config.BLOOM ? displayBloomShadingProgram : displayShadingProgram;
-            program.bind();
-            gl.uniform2f(program.uniforms.texelSize, 1.0 / width, 1.0 / height);
-            gl.uniform1i(program.uniforms.uTexture, density.read.attach(0));
-            if (config.BLOOM) {
-                gl.uniform1i(program.uniforms.uBloom, bloom.attach(1));
-                gl.uniform1i(program.uniforms.uDithering, ditheringTexture.attach(2));
-                let scale = getTextureScale(ditheringTexture, width, height);
-                gl.uniform2f(program.uniforms.ditherScale, scale.x, scale.y);
-            }
-        }
-        else {
-            let program = config.BLOOM ? displayBloomProgram : displayProgram;
-            program.bind();
-            gl.uniform1i(program.uniforms.uTexture, density.read.attach(0));
-            if (config.BLOOM) {
-                gl.uniform1i(program.uniforms.uBloom, bloom.attach(1));
-                gl.uniform1i(program.uniforms.uDithering, ditheringTexture.attach(2));
-                let scale = getTextureScale(ditheringTexture, width, height);
-                gl.uniform2f(program.uniforms.ditherScale, scale.x, scale.y);
-            }
-        }
-
-        blit(target);
-    }
-
-    function applyBloom(source, destination) {
-        if (bloomFramebuffers.length < 2)
-            return;
-
-        let last = destination;
-
-        gl.disable(gl.BLEND);
-        bloomPrefilterProgram.bind();
-        let knee = config.BLOOM_THRESHOLD * config.BLOOM_SOFT_KNEE + 0.0001;
-        let curve0 = config.BLOOM_THRESHOLD - knee;
-        let curve1 = knee * 2;
-        let curve2 = 0.25 / knee;
-        gl.uniform3f(bloomPrefilterProgram.uniforms.curve, curve0, curve1, curve2);
-        gl.uniform1f(bloomPrefilterProgram.uniforms.threshold, config.BLOOM_THRESHOLD);
-        gl.uniform1i(bloomPrefilterProgram.uniforms.uTexture, source.attach(0));
-        gl.viewport(0, 0, last.width, last.height);
-        blit(last.fbo);
-
-        bloomBlurProgram.bind();
-        for (let i = 0; i < bloomFramebuffers.length; i++) {
-            let dest = bloomFramebuffers[i];
-            gl.uniform2f(bloomBlurProgram.uniforms.texelSize, 1.0 / last.width, 1.0 / last.height);
-            gl.uniform1i(bloomBlurProgram.uniforms.uTexture, last.attach(0));
-            gl.viewport(0, 0, dest.width, dest.height);
-            blit(dest.fbo);
-            last = dest;
-        }
-
-        gl.blendFunc(gl.ONE, gl.ONE);
-        gl.enable(gl.BLEND);
-
-        for (let i = bloomFramebuffers.length - 2; i >= 0; i--) {
-            let baseTex = bloomFramebuffers[i];
-            gl.uniform2f(bloomBlurProgram.uniforms.texelSize, 1.0 / last.width, 1.0 / last.height);
-            gl.uniform1i(bloomBlurProgram.uniforms.uTexture, last.attach(0));
-            gl.viewport(0, 0, baseTex.width, baseTex.height);
-            blit(baseTex.fbo);
-            last = baseTex;
-        }
-
-        gl.disable(gl.BLEND);
-        bloomFinalProgram.bind();
-        gl.uniform2f(bloomFinalProgram.uniforms.texelSize, 1.0 / last.width, 1.0 / last.height);
-        gl.uniform1i(bloomFinalProgram.uniforms.uTexture, last.attach(0));
-        gl.uniform1f(bloomFinalProgram.uniforms.intensity, config.BLOOM_INTENSITY);
-        gl.viewport(0, 0, destination.width, destination.height);
-        blit(destination.fbo);
-    }
-
-    function splat(x, y, dx, dy, color) {
-        gl.viewport(0, 0, simWidth, simHeight);
-        splatProgram.bind();
-        gl.uniform1i(splatProgram.uniforms.uTarget, velocity.read.attach(0));
-        gl.uniform1f(splatProgram.uniforms.aspectRatio, canvas.width / canvas.height);
-        gl.uniform2f(splatProgram.uniforms.point, x / canvas.width, 1.0 - y / canvas.height);
-        gl.uniform3f(splatProgram.uniforms.color, dx, -dy, 1.0);
-        gl.uniform1f(splatProgram.uniforms.radius, config.SPLAT_RADIUS / 100.0);
-        blit(velocity.write.fbo);
-        velocity.swap();
-
-        gl.viewport(0, 0, dyeWidth, dyeHeight);
-        gl.uniform1i(splatProgram.uniforms.uTarget, density.read.attach(0));
-        gl.uniform3f(splatProgram.uniforms.color, color.r, color.g, color.b);
-        blit(density.write.fbo);
-        density.swap();
-    }
-
-    function multipleSplats(amount) {
-        for (let i = 0; i < amount; i++) {
-            const color = generateColor();
-            color.r *= 10.0;
-            color.g *= 10.0;
-            color.b *= 10.0;
-            const x = canvas.width * Math.random();
-            const y = canvas.height * Math.random();
-            const dx = 1000 * (Math.random() - 0.5);
-            const dy = 1000 * (Math.random() - 0.5);
-            splat(x, y, dx, dy, color);
-        }
-    }
-
-    function resizeCanvas() {
-        if (canvas.width != canvas.clientWidth || canvas.height != canvas.clientHeight) {
-            canvas.width = canvas.clientWidth;
-            canvas.height = canvas.clientHeight;
-            initFramebuffers();
-        }
-    }
-
-    function pointerPos(clientX, clientY) {
-        const rect = canvas.getBoundingClientRect();
-        return { x: clientX - rect.left, y: clientY - rect.top };
-    }
-
-    const teardown = [];
-    function on(target, type, handler, opts) {
-        target.addEventListener(type, handler, opts);
-        teardown.push(() => target.removeEventListener(type, handler, opts));
-    }
-
-    on(window, 'mousemove', e => {
-        const { x, y } = pointerPos(e.clientX, e.clientY);
-        const p = pointers[0];
-        if (!p.everMoved) {
-            p.everMoved = true;
-            p.x = x;
-            p.y = y;
-            p.down = true;
-            return;
-        }
-        p.down = true;
-        p.moved = true;
-        p.dx = (x - p.x) * 5.0;
-        p.dy = (y - p.y) * 5.0;
-        p.x = x;
-        p.y = y;
-        p.color = generateColor();
-    });
-
-    on(window, 'touchmove', e => {
-        const touches = e.targetTouches;
-        for (let i = 0; i < touches.length; i++) {
-            if (i >= pointers.length)
-                pointers.push(new pointerPrototype());
-            const p = pointers[i];
-            const { x, y } = pointerPos(touches[i].clientX, touches[i].clientY);
-            p.down = true;
-            p.moved = p.everMoved === true;
-            p.everMoved = true;
-            p.dx = (x - p.x) * 8.0;
-            p.dy = (y - p.y) * 8.0;
-            p.x = x;
-            p.y = y;
-        }
-    }, { passive: true });
-
-    on(window, 'touchstart', e => {
-        const touches = e.targetTouches;
-        for (let i = 0; i < touches.length; i++) {
-            if (i >= pointers.length)
-                pointers.push(new pointerPrototype());
-            const p = pointers[i];
-            const { x, y } = pointerPos(touches[i].clientX, touches[i].clientY);
-            p.id = touches[i].identifier;
-            p.down = true;
-            p.x = x;
-            p.y = y;
-            p.color = generateColor();
-        }
-    }, { passive: true });
-
-    on(window, 'mouseup', () => {
-        pointers[0].down = false;
-    });
-
-    on(window, 'touchend', e => {
-        const touches = e.changedTouches;
-        for (let i = 0; i < touches.length; i++)
-            for (let j = 0; j < pointers.length; j++)
-                if (touches[i].identifier == pointers[j].id)
-                    pointers[j].down = false;
-    });
-
-    return function destroy() {
-        destroyed = true;
-        if (rafHandle) cancelAnimationFrame(rafHandle);
-        for (const off of teardown) off();
-    };
-
-    function generateColor() {
-        const h = 0.5 + Math.random() * 0.42;
-        let c = HSVtoRGB(h, 0.95, 1.0);
-        c.r *= 0.92;
-        c.g *= 0.92;
-        c.b *= 0.92;
-        return c;
-    }
-
-    function HSVtoRGB(h, s, v) {
-        let r, g, b, i, f, p, q, t;
-        i = Math.floor(h * 6);
-        f = h * 6 - i;
-        p = v * (1 - s);
-        q = v * (1 - f * s);
-        t = v * (1 - (1 - f) * s);
-
-        switch (i % 6) {
-            case 0: r = v, g = t, b = p; break;
-            case 1: r = q, g = v, b = p; break;
-            case 2: r = p, g = v, b = t; break;
-            case 3: r = p, g = q, b = v; break;
-            case 4: r = t, g = p, b = v; break;
-            case 5: r = v, g = p, b = q; break;
-        }
-        return { r, g, b };
-    }
-
-    function getResolution(resolution) {
-        let aspectRatio = gl.drawingBufferWidth / gl.drawingBufferHeight;
-        if (aspectRatio < 1)
-            aspectRatio = 1.0 / aspectRatio;
-
-        let max = Math.round(resolution * aspectRatio);
-        let min = Math.round(resolution);
-
-        if (gl.drawingBufferWidth > gl.drawingBufferHeight)
-            return { width: max, height: min };
-        else
-            return { width: min, height: max };
-    }
-
-    function getTextureScale(texture, width, height) {
-        return { x: width / texture.width, y: height / texture.height };
-    }
-}
-
-(function () {
-  const canvas = document.querySelector("canvas.fluid");
-  if (!canvas) return;
-  try { fluidSimulation(canvas); } catch (e) { canvas.style.display = "none"; }
+  });
 })();
 </script>
 
 <script type="module">
-try {
-  const { default: Lenis } = await import("https://unpkg.com/lenis@1.3.19/dist/lenis.mjs");
-  const lenis = new Lenis({ smoothWheel: true, anchors: true });
-  function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
-  requestAnimationFrame(raf);
-} catch (e) { /* native scrolling still works */ }
-</script>
+/* =====================================================================
+   WebGL gravity field (Three.js). Physics constants are fixed by design.
+   ===================================================================== */
+const BT = window.BT;
+const container = document.getElementById('scene');
 
-</body></html>
+let THREE;
+try {
+  THREE = await import('three');
+} catch (err) {
+  console.warn('Three.js failed to load; continuing without the 3D scene.', err);
+  BT.onReady();
+}
+
+function createScene(ballColor, onReady) {
+  const control = BT.control;
+  const mousePos = BT.mousePos;
+  const canvas = document.createElement('canvas');
+  container.appendChild(canvas);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, container.clientWidth / container.clientHeight, 0.1, 100);
+  camera.position.set(0, 0, 11);
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+  const hemiLight = new THREE.HemisphereLight(0xffffff, new THREE.Color(ballColor), 1.6);
+  scene.add(hemiLight);
+
+  const keyLight = new THREE.DirectionalLight(0xffffff, 1.4);
+  keyLight.position.set(-6, 10, 8);
+  keyLight.castShadow = true;
+  keyLight.shadow.mapSize.width = 2048;
+  keyLight.shadow.mapSize.height = 2048;
+  keyLight.shadow.camera.near = 0.5;
+  keyLight.shadow.camera.far = 30;
+  keyLight.shadow.camera.left = -8;
+  keyLight.shadow.camera.right = 8;
+  keyLight.shadow.camera.top = 8;
+  keyLight.shadow.camera.bottom = -8;
+  keyLight.shadow.bias = -0.0003;
+  keyLight.shadow.radius = 12.0;
+  scene.add(keyLight);
+
+  const rimLight = new THREE.DirectionalLight(0xffffff, 1.25);
+  rimLight.position.set(8, 7, -8);
+  scene.add(rimLight);
+
+  const frontLight = new THREE.DirectionalLight(0xffffff, 0.4);
+  frontLight.position.set(0, 0, 11);
+  scene.add(frontLight);
+
+  const sideBounceLight = new THREE.DirectionalLight(0xffffff, 0.3);
+  sideBounceLight.position.set(-9, -2, 4);
+  scene.add(sideBounceLight);
+
+  let viewportWidth = 10;
+  let viewportHeight = 6;
+  const updateFrustumBounds = () => {
+    const fovRad = THREE.MathUtils.degToRad(camera.fov);
+    viewportHeight = 2 * Math.tan(fovRad / 2) * camera.position.z;
+    viewportWidth = viewportHeight * (container.clientWidth / container.clientHeight);
+  };
+  updateFrustumBounds();
+
+  const isMobile = window.innerWidth < 768;
+  const ballCount = isMobile ? 54 : 96;
+
+  const getDynamicColors = (baseColor) => {
+    const hex = baseColor.toLowerCase();
+    if (hex === '#e1fc03') {
+      return { pastel: new THREE.Color('#FBFFE2'), light: new THREE.Color('#EFFE69'),
+        medium: new THREE.Color('#E1FC03'), deep: new THREE.Color('#B1E200'), glass: new THREE.Color('#DCFF32') };
+    } else if (hex === '#ffc5c2' || hex === '#ffa19e') {
+      return { pastel: new THREE.Color('#FFF5F4'), light: new THREE.Color('#FFECEB'),
+        medium: new THREE.Color('#FFA6B3'), deep: new THREE.Color('#FF4D6D'), glass: new THREE.Color('#FFA6B3') };
+    } else if (hex === '#96e5ff') {
+      return { pastel: new THREE.Color('#F0F9FF'), light: new THREE.Color('#C9F1FF'),
+        medium: new THREE.Color('#96E5FF'), deep: new THREE.Color('#2BA5FF'), glass: new THREE.Color('#98E4FF') };
+    } else if (hex === '#2f69ff') {
+      return { pastel: new THREE.Color('#ECEFFF'), light: new THREE.Color('#A8C1FF'),
+        medium: new THREE.Color('#2F69FF'), deep: new THREE.Color('#0A33BF'), glass: new THREE.Color('#4D80FF') };
+    } else if (hex === '#141414' || hex === '#000000') {
+      return { pastel: new THREE.Color('#D8D8D8'), light: new THREE.Color('#555555'),
+        medium: new THREE.Color('#242424'), deep: new THREE.Color('#0A0A0A'), glass: new THREE.Color('#1F1F1F') };
+    }
+    const c = new THREE.Color(baseColor);
+    return { pastel: c.clone().offsetHSL(0, -0.15, 0.25), light: c.clone().offsetHSL(0, -0.05, 0.12),
+      medium: c.clone(), deep: c.clone().offsetHSL(0.01, 0.1, -0.12), glass: c.clone() };
+  };
+
+  const palette = getDynamicColors(ballColor);
+  const isBlack = ['#141414', '#18181b', '#000000'].includes(ballColor.toLowerCase());
+
+  const palHero = palette;
+  const palLime = getDynamicColors('#E1FC03');
+  const palPink = getDynamicColors('#FFC5C2');
+  const ROLES = ['pastel', 'light', 'medium', 'deep', 'glass'];
+  const curPal = { pastel: new THREE.Color(), light: new THREE.Color(), medium: new THREE.Color(),
+    deep: new THREE.Color(), glass: new THREE.Color() };
+
+  const sphereGeometry = new THREE.SphereGeometry(1, 48, 48);
+  const balls = [];
+  for (let i = 0; i < ballCount; i++) {
+    let radius = 0.33;
+    const rand = Math.random();
+    if (rand < 0.3) radius = 0.27 + Math.random() * 0.12;
+    else if (rand < 0.8) radius = 0.42 + Math.random() * 0.18;
+    else radius = 0.66 + Math.random() * 0.21;
+
+    const mass = Math.pow(radius, 3);
+
+    let chosenColor = palette.medium;
+    let color = palette.medium;
+    let sphereMat;
+    let role = 'medium';
+
+    const isGlass = Math.random() < 0.22 && !isBlack;
+
+    if (isGlass) {
+      sphereMat = new THREE.MeshPhysicalMaterial({
+        color: palette.glass, roughness: 0.08, metalness: 0.0,
+        clearcoat: 1.0, clearcoatRoughness: 0.03, transmission: 0.95,
+        ior: 1.485, thickness: 2.2,
+        specularColor: new THREE.Color('#ffffff'), specularIntensity: 1.0,
+        attenuationColor: palette.pastel, attenuationDistance: 1.0,
+        emissive: palette.glass, emissiveIntensity: 0.12,
+        transparent: true,
+      });
+      color = palette.glass;
+      role = 'glass';
+    } else {
+      const colorRand = Math.random();
+      if (colorRand < 0.25) { chosenColor = palette.pastel; role = 'pastel'; }
+      else if (colorRand < 0.55) { chosenColor = palette.light; role = 'light'; }
+      else if (colorRand < 0.85) { chosenColor = palette.medium; role = 'medium'; }
+      else { chosenColor = palette.deep; role = 'deep'; }
+
+      sphereMat = new THREE.MeshPhysicalMaterial({
+        color: chosenColor, roughness: 0.44, metalness: 0.0,
+        clearcoat: 0.24, clearcoatRoughness: 0.35,
+        emissive: isBlack ? new THREE.Color('#000000') : chosenColor,
+        emissiveIntensity: isBlack ? 0.0 : 0.08,
+        transparent: true,
+      });
+      color = chosenColor;
+    }
+
+    const group = new THREE.Group();
+    const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMat);
+    sphereMesh.scale.setScalar(radius);
+    sphereMesh.castShadow = true;
+    sphereMesh.receiveShadow = true;
+    group.add(sphereMesh);
+    scene.add(group);
+
+    balls.push({
+      id: i, radius, mass,
+      position: new THREE.Vector3(0, 0, 0),
+      velocity: new THREE.Vector3(),
+      meshGroup: group, sphere: sphereMesh, material: sphereMat, role, isGlass,
+      visualScale: radius, color,
+      restPosition: new THREE.Vector3(0, 0, 0),
+      shapeTarget: new THREE.Vector3(),
+      angleY: Math.random() * Math.PI * 2,
+      angleZ: 0.1 + Math.random() * 0.45,
+    });
+  }
+
+  const meanRadius = balls.reduce((sum, b) => sum + b.radius, 0) / balls.length;
+  let shapeScale = 1;
+
+  const inHeart = (x, y) => {
+    const a = x * x + y * y - 1;
+    return a * a * a - x * x * y * y * y <= 0;
+  };
+  const assignHeartTargets = () => {
+    const S = Math.min(viewportWidth * 0.30, viewportHeight * 0.27);
+    const baseCY = -viewportHeight * 0.03;
+    shapeScale = Math.max(0.3, Math.min(1, (S * 0.45 / 2.3) / meanRadius));
+    for (let i = 0; i < balls.length; i++) {
+      let x = 0, y = 0, tries = 0;
+      do {
+        x = (Math.random() * 2 - 1) * 1.25;
+        y = Math.random() * 2.55 - 1.4;
+        tries++;
+      } while (!inHeart(x, y) && tries < 60);
+      balls[i].shapeTarget.set(x * S, (y + 0.12) * S + baseCY, (Math.random() - 0.5) * 0.35);
+    }
+  };
+  assignHeartTargets();
+
+  const scatterFar = (withInwardVelocity) => {
+    const R = Math.max(viewportWidth, viewportHeight) * 1.5;
+    for (const b of balls) {
+      const a = Math.random() * Math.PI * 2;
+      const px = Math.cos(a) * R * 1.25;
+      const py = Math.sin(a) * R * 0.85;
+      const pz = (Math.random() - 0.5) * 4;
+      b.position.set(px, py, pz);
+      b.meshGroup.position.copy(b.position);
+      if (withInwardVelocity) {
+        b.velocity.set(-px, -py, -pz).normalize().multiplyScalar(0.08 + Math.random() * 0.05);
+      } else {
+        b.velocity.set(0, 0, 0);
+      }
+    }
+  };
+  scatterFar(false);
+
+  const params = {
+    gravity: 0, rebound: -0.3,
+    mouseRepelForce: 0.05, mouseRepelRadius: 4.4,
+    damping: 0.91, centerAttractForce: 0.0035, bounciness: 0.02,
+  };
+
+  const mouseProjVec = new THREE.Vector3();
+  const mouseWorld3D = new THREE.Vector3();
+  const updateMouse3D = () => {
+    if (!mousePos) return;
+    mouseProjVec.set(mousePos.x, mousePos.y, 0.5);
+    mouseProjVec.unproject(camera);
+    const dir = mouseProjVec.sub(camera.position).normalize();
+    const distance = -camera.position.z / dir.z;
+    mouseWorld3D.copy(camera.position).add(dir.multiplyScalar(distance));
+  };
+
+  const clamp01 = (v) => (v < 0 ? 0 : v > 1 ? 1 : v);
+  const smoothstep = (a, b, x) => { const t = clamp01((x - a) / (b - a)); return t * t * (3 - 2 * t); };
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+  let animationFrameId = 0;
+  const clock = new THREE.Clock();
+  let localStarted = false;
+  let entranceStart = 0;
+  let reportedReady = false;
+
+  const diffVec = new THREE.Vector3();
+  const collideDiff = new THREE.Vector3();
+  const relVel = new THREE.Vector3();
+  const deltaPos = new THREE.Vector3();
+  const rotAxis = new THREE.Vector3();
+  const prevMouseWorld = new THREE.Vector3();
+  let mouseSpeed = 0;
+  let allGone = false;
+  let idleRendered = false;
+
+  const simulateAndRender = () => {
+    animationFrameId = requestAnimationFrame(simulateAndRender);
+
+    const time = clock.getElapsedTime();
+    clock.getDelta();
+    updateMouse3D();
+
+    const ctrl = control;
+
+    if (ctrl?.started && !localStarted) {
+      localStarted = true;
+      entranceStart = time;
+      scatterFar(true);
+    }
+
+    if (!localStarted) {
+      renderer.render(scene, camera);
+      if (!reportedReady) { reportedReady = true; onReady(); }
+      return;
+    }
+
+    const progress = ctrl?.progress ?? 0;
+
+    const heroF = 1 - smoothstep(0.30, 0.80, progress);
+    const dropRaw = smoothstep(0.40, 0.95, progress);
+    const flyF = smoothstep(2.7, 3.45, progress);
+    const shapeF = smoothstep(1.40, 2.05, progress) * (1 - smoothstep(2.55, 3.0, progress));
+    const dropF = dropRaw * (1 - smoothstep(1.25, 1.75, progress));
+
+    const bLime = smoothstep(0.55, 1.05, progress);
+    const bPink = smoothstep(1.40, 1.95, progress);
+    for (const role of ROLES) {
+      curPal[role].copy(palHero[role]).lerp(palLime[role], bLime).lerp(palPink[role], bPink);
+    }
+    hemiLight.groundColor.copy(curPal.medium);
+
+    const entranceT = easeOutCubic(clamp01((time - entranceStart) / 2.2));
+    const attractionBoost = lerp(7.5, 1, entranceT);
+
+    const isMouseInteracting = !!mousePos &&
+      (Math.abs(mousePos.x) < 0.99 || Math.abs(mousePos.y) < 0.99);
+
+    mouseSpeed = isMouseInteracting ? mouseWorld3D.distanceTo(prevMouseWorld) : 0;
+    if (mouseSpeed > 3) mouseSpeed = 3;
+    prevMouseWorld.copy(mouseWorld3D);
+
+    let damping = 0.91;
+    damping = lerp(damping, 0.992, dropF);
+    damping = lerp(damping, 0.90, shapeF);
+    damping = lerp(damping, 0.985, flyF);
+
+    const camZ = camera.position.z;
+    const clusterActive = Math.max(heroF, entranceT < 1 ? 1 : 0);
+
+    // Once every sphere has flown past the lens, idle (saves battery on the info pages).
+    if (flyF >= 1 && allGone) {
+      if (!idleRendered) { renderer.render(scene, camera); idleRendered = true; }
+      return;
+    }
+    idleRendered = false;
+
+    // 1. ACCELERATIONS
+    for (let i = 0; i < balls.length; i++) {
+      const b = balls[i];
+
+      if (heroF > 0.01) {
+        b.velocity.x += Math.sin(time * 0.4 + b.id * 1.5) * 0.0004 * b.radius * heroF;
+        b.velocity.y += Math.cos(time * 0.5 + b.id * 1.2) * 0.0004 * b.radius * heroF;
+        b.velocity.z += Math.sin(time * 0.35 + b.id) * 0.0001 * heroF;
+      }
+
+      const clusterStrength = params.centerAttractForce * attractionBoost * clusterActive;
+      if (clusterStrength > 0.00001) {
+        b.velocity.x += (0 - b.position.x) * clusterStrength * 0.38;
+        b.velocity.y += (0 - b.position.y) * clusterStrength * 1.85;
+        b.velocity.z += (0 - b.position.z) * clusterStrength * 1.8;
+      }
+
+      if (dropF > 0.001) {
+        b.velocity.y -= 0.011 * dropF;
+      }
+
+      if (shapeF > 0.001) {
+        const k = 0.06 * shapeF;
+        b.velocity.x += (b.shapeTarget.x - b.position.x) * k;
+        b.velocity.y += (b.shapeTarget.y - b.position.y) * k;
+        b.velocity.z += (b.shapeTarget.z - b.position.z) * k;
+      }
+
+      if (flyF > 0.001) {
+        const stagger = (b.id * 0.6180339887) % 1;
+        const local = smoothstep(stagger * 0.55, stagger * 0.55 + 0.45, flyF);
+        b.velocity.z += 0.05 * local;
+        b.velocity.x += b.position.x * 0.006 * local;
+        b.velocity.y += b.position.y * 0.006 * local;
+      }
+
+      if (mousePos && isMouseInteracting) {
+        diffVec.subVectors(b.position, mouseWorld3D);
+        const rawDist = diffVec.length();
+        const down = mousePos.isDown;
+        const activeRepelRadius = down ? params.mouseRepelRadius * 1.4 : params.mouseRepelRadius;
+        const activeRepelForce = down ? params.mouseRepelForce * 1.7 : params.mouseRepelForce;
+        if (rawDist < activeRepelRadius && rawDist > 0.0001) {
+          const ratio = rawDist / activeRepelRadius;
+          const smoothFactor = 1.0 - (ratio * ratio * (3.0 - 2.0 * ratio));
+          const speedBoost = 1 + mouseSpeed * 3.2;
+          const push = smoothFactor * activeRepelForce * speedBoost;
+          diffVec.normalize();
+          diffVec.z *= 0.12;
+          diffVec.normalize();
+          b.velocity.addScaledVector(diffVec, push);
+        }
+      }
+
+      b.velocity.multiplyScalar(damping);
+      b.position.addScaledVector(b.velocity, 1);
+
+      const c = b.isGlass ? curPal.glass : curPal[b.role];
+      b.material.color.copy(c);
+      if (!isBlack) b.material.emissive.copy(c);
+
+      b.material.opacity = flyF > 0.001
+        ? 1 - smoothstep(camZ - 2.6, camZ - 0.3, b.position.z)
+        : 1;
+
+      const targetVis = b.radius * (1 - (1 - shapeScale) * shapeF);
+      b.visualScale += (targetVis - b.visualScale) * 0.12;
+      b.sphere.scale.setScalar(b.visualScale);
+    }
+
+    // 2. PAIRWISE COLLISIONS
+    const collideScale = 0.28 * (1 - 0.93 * shapeF) * (1 - flyF);
+    const subSteps = 4;
+    for (let step = 0; step < subSteps; step++) {
+      for (let i = 0; i < balls.length; i++) {
+        for (let j = i + 1; j < balls.length; j++) {
+          const b1 = balls[i];
+          const b2 = balls[j];
+          collideDiff.subVectors(b2.position, b1.position);
+          const dist = collideDiff.length();
+          const minDist = b1.visualScale + b2.visualScale;
+          if (dist < minDist && dist > 0.001) {
+            const overlap = minDist - dist;
+            collideDiff.multiplyScalar(1 / dist);
+            const totalMass = b1.mass + b2.mass;
+            const ratio1 = b2.mass / totalMass;
+            const ratio2 = b1.mass / totalMass;
+            b1.position.addScaledVector(collideDiff, -overlap * ratio1 * collideScale);
+            b2.position.addScaledVector(collideDiff, overlap * ratio2 * collideScale);
+
+            relVel.subVectors(b2.velocity, b1.velocity);
+            const velAlongNormal = relVel.dot(collideDiff);
+            if (velAlongNormal < -0.0001) {
+              const impulse = -(1 + params.bounciness) * velAlongNormal / (1 / b1.mass + 1 / b2.mass);
+              b1.velocity.addScaledVector(collideDiff, -impulse / b1.mass);
+              b2.velocity.addScaledVector(collideDiff, impulse / b2.mass);
+            }
+          }
+        }
+      }
+    }
+
+    // 3. VIEWPORT WALLS + BOUNCY FLOOR
+    const borderPad = 0.2;
+    const xBound = viewportWidth / 2 - borderPad;
+    const topY = viewportHeight / 2 - 0.05;
+    const floorY = -viewportHeight / 2 + 0.05;
+    const zBound = 2.0;
+    const restitution = 0.30 + 0.35 * dropF;
+
+    const contain = flyF < 0.5;
+    const zContain = flyF < 0.02;
+
+    for (let i = 0; i < balls.length; i++) {
+      const b = balls[i];
+      const r = b.visualScale;
+
+      if (contain) {
+        if (b.position.x < -xBound - r) { b.position.x = -xBound - r; b.velocity.x *= params.rebound; }
+        else if (b.position.x > xBound + r) { b.position.x = xBound + r; b.velocity.x *= params.rebound; }
+
+        if (b.position.y - r < floorY) {
+          b.position.y = floorY + r;
+          if (b.velocity.y < 0) b.velocity.y = -b.velocity.y * restitution;
+          if (dropF > 0.3) { b.velocity.x *= 0.86; b.velocity.z *= 0.86; }
+        }
+        if (b.position.y + r > topY) {
+          b.position.y = topY - r;
+          if (b.velocity.y > 0) b.velocity.y *= params.rebound;
+        }
+      }
+
+      if (zContain) {
+        if (b.position.z < -zBound) { b.position.z = -zBound; b.velocity.z *= params.rebound; }
+        else if (b.position.z > zBound) { b.position.z = zBound; b.velocity.z *= params.rebound; }
+      }
+
+      deltaPos.copy(b.position).sub(b.meshGroup.position);
+      if (deltaPos.lengthSq() > 0.000001) {
+        rotAxis.set(deltaPos.y, -deltaPos.x, 0).normalize();
+        const rotAngle = (deltaPos.length() / b.radius) * 0.95;
+        b.meshGroup.rotateOnWorldAxis(rotAxis, rotAngle);
+      }
+      b.meshGroup.position.copy(b.position);
+    }
+
+    allGone = flyF >= 1 && balls.every((b) => b.position.z > camZ - 0.3);
+
+    renderer.render(scene, camera);
+    if (!reportedReady) { reportedReady = true; onReady(); }
+  };
+
+  simulateAndRender();
+
+  const handleResize = () => {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    if (!width || !height) return;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+    updateFrustumBounds();
+    assignHeartTargets();
+  };
+  const ro = new ResizeObserver(handleResize);
+  ro.observe(container);
+
+  return function dispose() {
+    cancelAnimationFrame(animationFrameId);
+    ro.disconnect();
+    sphereGeometry.dispose();
+    for (const b of balls) b.material.dispose();
+    renderer.dispose();
+    renderer.forceContextLoss();
+    canvas.remove();
+  };
+}
+
+if (THREE) {
+  let dispose = null;
+  const build = (color, onReady) => {
+    try {
+      if (dispose) dispose();
+      dispose = createScene(color, onReady || (() => {}));
+    } catch (err) {
+      console.warn('WebGL scene could not start.', err);
+      dispose = null;
+      (onReady || (() => {}))();
+    }
+  };
+  build(BT.ballColor || '#2F69FF', BT.onReady);
+  BT.rebuild = (color) => build(color);
+}
+</script>
+</body>
+</html>
