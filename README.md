@@ -2,7 +2,9 @@
 
 Website for **Better Together**, a student conference on belonging and human connection hosted by Phi Theta Kappa, Omega Sigma Chapter (Houston City College). It is the action component of the chapter's 2026–2027 Honors in Action project.
 
-**Conference:** Saturday, February 13, 2027 · 9:00 AM – 2:00 PM (check-in 8:30 – 9:00 AM) · HCC Central Campus
+**Conference:** Saturday, February 13, 2027 · 8:30 AM – 2:00 PM (check-in 8:30 – 9:00 AM) · Harmony 101, HCC Central Campus
+**Faculty advisors:** Dr. Rangel, Dr. B, Dr. Ables
+**Questions:** email phuthuan160521@gmail.com to contact the Chapter President
 **Registration opens:** January 11, 2027 · **Abstract deadline:** January 15, 2027 at 11:59 PM
 
 ## What's here
@@ -21,4 +23,4 @@ The form asks for name, email, and whether the person wants to join as an attend
 - Guest speaker (shown as TBA)
 - Acceptance notification date (shown as TBA)
 - Abstract submission link
-- Room at HCC Central Campus
+- Full names and titles/departments for the faculty advisors
